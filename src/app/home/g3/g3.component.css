@@ -1,0 +1,156 @@
+.group-3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    background-color: #F4F8FF;
+    width: 100%;
+    padding: 75px 0 75px 0;
+
+}
+
+@media only screen and (max-width: 800px) {
+    .group-3 {
+        flex-direction: column-reverse;
+    }
+}
+
+.subtitle-separator {
+
+    width: 35px;
+    height: 3px;
+    background-color: #ffca42;
+}
+
+.vertical-line {
+    width: 2px;
+    height: 100px;
+    background-color: #ffca42;
+    padding: 1px;
+}
+
+.group-3-img-border {
+    border: 10px solid #FFCA42;
+
+}
+
+
+.left {
+
+    margin: 1rem;
+}
+
+.group-3-img {
+
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: -20px;
+    left: -20px;
+}
+
+.group-3-text {
+    max-width: 600px;
+    height: auto;
+    font-size: 22px;
+    line-height: 1.8;
+    text-align: left;
+    color: #969AA0;
+    flex-wrap: wrap;
+}
+
+
+
+.author-info {
+    display: flex;
+    
+    justify-content: center;
+    gap: 10px;
+}
+
+@media only screen and (max-width: 430px) {
+    .author-text {
+        width: 100%;
+    }
+    .author-info{
+        width: 220px;
+    }
+  }
+
+.yellow {
+    color: #ffca42;
+}
+
+.grey {
+    color: #b4c7e7;
+}
+
+.d-grey {
+    color: #969AA0;
+}
+
+.blue {
+    color: #1B3764;
+}
+
+.qr {
+    background-color: #1B3764;
+    width: 500px;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.qr-text {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .group-3-text {
+        font-size: 18px;
+    }
+    .qr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 260px;
+    }
+}
+
+/* @media only screen and (max-width: 300px) {
+    .group-3 {
+        width: 280px;
+    }
+    .group-3-text {
+        flex-wrap: wrap;
+    }
+} */
+
+
+.img-qr {
+    object-fit: contain;
+    width: 140px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.qr-highlight:hover {
+    color: #ffca42;
+    transition: all .5s ease;
+    cursor: pointer;
+}

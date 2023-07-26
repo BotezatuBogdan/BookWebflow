@@ -1,0 +1,226 @@
+* {
+    font-family: 'Cardo', sans-serif;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 75px 0;
+}
+
+.group-1 {
+    flex-direction: column;
+    padding: 75px 0;
+    gap: 1rem;
+    background-color: #1B3764;
+    color: white;
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 5px;
+    width: 400px;
+    border: 2px solid #DFE9F8;
+    
+}
+
+.card-content {
+    display: flex;  
+}
+
+.group-2 {
+    flex-direction: column;
+    
+}
+
+.g2-img {   
+    object-fit: contain;
+}
+
+.g2-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding: 5px;
+}
+
+.card-text {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    min-width: 300px;
+    flex-wrap: wrap;
+
+}
+
+.socials {
+    display: flex;
+    margin-left: 1rem;
+}
+
+.g2-text {
+    max-width: 500px;
+    padding: 5px;
+    
+}
+
+.subtitle-separator {
+    width: 35px;
+    height: 3px;
+    background-color: #ffca42;
+}
+
+.social-icon {
+    cursor: pointer;
+}
+
+.contact-now-button {
+    border: 2px solid #ffca42;
+    max-width: 240px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    color: #1B3764;
+    background-color: #ffca42;
+    cursor: pointer;
+}
+
+.contact-now-button:hover {
+    background-color: white;
+    transition: all .5s ease;
+}
+
+.left .right {
+    width: 50%;
+}
+
+.group-3 {
+    gap: 1rem;
+}
+
+.subtitle {
+    max-width: 700px;
+}
+
+.square {
+    background-color: #ffca42;
+    padding: 10px;
+    margin: 0;
+    height: 65px !important;
+    width: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.story-item {
+    display: flex;
+    gap: 1rem;
+}
+
+.story-item-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dotted-line {
+    display: block;
+    width: 2px;
+    height: 100%;
+    min-height: 60px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px dashed #969aa0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 810px) {
+    .g2-bottom {
+        flex-direction: column-reverse;
+    }
+
+    .group-3 {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 90%;
+        margin: 1rem;
+    }
+    .card-text {
+        min-width: 200px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .g2-text {
+        width: 260px;
+        padding: 5px;
+    }
+    .card {
+        width: 260px;
+        font-size: 13px;
+        margin: 0;
+        margin-top: 5px;
+    }
+    
+    .g2-bottom {
+        width: 100%;
+    }
+}
+
+
+.bg-blue {
+    color: #1B3764;
+}
+
+.blue {
+    color: #1B3764;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.white {
+    color: white
+}
+
+.bg-yellow {
+    background-color: #ffca42;
+}
+
+.yellow {
+    column-rule: #ffca42;
+}
+
+.grey {
+    color: #969aa0;
+}

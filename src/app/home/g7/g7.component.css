@@ -1,0 +1,134 @@
+.g7 {
+    padding: 75px 0 75px 0;
+    background-color: #f5f8fc;
+    width: 100%;
+}
+
+.subtitle-separator {
+    width: 35px;
+    height: 3px;
+    background-color: #ffca42;
+}
+
+.group-7-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+    color: #1B3764;
+}
+
+.group-7-text {
+    font-weight: 700;
+    letter-spacing: 2px;
+
+}
+
+.chapter {
+    background-color: white;
+    padding: 2rem;
+    max-width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.order-button4 {
+    border: 2px solid transparent;
+    background-color: #FFCA42;
+    color: 1B3764;
+    display: flex;
+    width: 425px;
+    height: 75px;
+    padding: 13px 33px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    font-family: 'Cardo';
+    font-size: 19px;
+    letter-spacing: 0.38px;
+    cursor: pointer;
+}
+
+
+
+.order-button4:hover {
+    border: 2px solid #FFCA42;
+    background-color: transparent;
+    transition: all .5s ease;
+}
+
+.g7-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 30px;
+
+    text-align: center;
+}
+
+.questions {
+    color: #1B3764;
+    cursor: pointer;
+}
+
+.questions:hover {
+    color: black;
+}
+
+.dot {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+    border-radius: 100px;
+    background-color: #ffca42;
+}
+
+@media only screen and (max-width: 430px) {
+    .order-button4 {
+        width: 250px;
+    }
+
+    .button-text {
+        width: 250px;
+    }
+
+    .chapter-row {
+        width: 250px;
+    }
+}
+
+.yellow {
+    color: #ffca42;
+}
+
+.grey {
+    color: #b4c7e7;
+}
+
+.d-grey {
+    color: #969AA0;
+}
+
+.blue {
+    color: #1B3764;
+}
+
+h4 {
+    margin: 0 !important;
+}
+
+.list-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 28px;
+    font-weight: bold;
+
+}

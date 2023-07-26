@@ -1,0 +1,173 @@
+* {
+    font-family: 'Cardo', sans-serif;
+}
+
+.yellow-hover:hover {
+    color: #ffca42;
+    transition: all .5s ease;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 75px 0;
+}
+
+.group-1 {
+    flex-direction: column;
+    padding: 75px 0;
+    gap: 1rem;
+    background-color: #1B3764;
+    color: white;
+    text-align: center;
+}
+
+
+
+.subtitle-separator {
+    width: 35px;
+    height: 3px;
+    background-color: #ffca42;
+}
+
+.store-items {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+.bg-blue {
+    color: #1B3764;
+}
+
+.blue {
+    color: #1B3764;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.white {
+    color: white
+}
+
+.bg-yellow {
+    background-color: #ffca42;
+}
+
+.yellow {
+    column-rule: #ffca42;
+}
+
+.grey {
+    color: #969aa0;
+}
+
+.book-container {
+    padding: 10px;
+    flex-direction: column;
+}
+
+
+.book-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.book-title {
+    font-size: 32px;
+    font-weight: bolder;
+    color: #1B3764;
+}
+
+.book-price {
+    font-family: "Cardo";
+    color: #ffca42;
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+.img {
+    object-fit: contain;
+    max-width: 250px;
+    height: auto;
+}
+
+.book-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-description {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: Inter, sans-serif;
+    text-align: center;
+    color: #969aa0;
+    font-size: 19px;
+    line-height: 1.5;
+    font-weight: 400;
+    max-width: 300px;
+}
+
+.order-button2 {
+    border: 2px solid #FFCA42;
+    background-color: transparent;
+    color: #1B3764;
+    display: flex;
+    width: 215px;
+    height: 60px;
+    padding: 13px 33px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #1B3764;
+    text-align: center;
+    font-family: 'Cardo';
+    font-size: 19px;
+    letter-spacing: 0.38px;
+    cursor: pointer;
+}
+
+.order-button2:hover {
+    border: 2px solid #FFCA42;
+    background-color: #FFCA42;
+    transition: all .5s ease;
+}
+
+.dot {
+    width: 16px;
+    height: 16px;
+    margin: 10px;
+    border-radius: 100px;
+    background-color: #ffca42;
+}
+
+.list-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 36px
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+

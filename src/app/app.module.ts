@@ -1,0 +1,73 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { G1Component } from './home/g1/g1.component';
+import { G2Component } from './home/g2/g2.component';
+import { G3Component } from './home/g3/g3.component';
+import { G4Component } from './home/g4/g4.component';
+import { G5Component } from './home/g5/g5.component';
+import { G6Component } from './home/g6/g6.component';
+import { G7Component } from './home/g7/g7.component';
+import { G8Component } from './home/g8/g8.component';
+import { G9Component } from './home/g9/g9.component';
+import { G10Component } from './home/g10/g10.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { StoreComponent } from './store/store.component';
+import { ProdSingleComponent } from './prod-single/prod-single.component';
+import { ArticleInfoComponent } from './articles/article-info/article-info.component';
+import { StyleGuideComponent } from './style-guide/style-guide.component';
+import { ErrComponent } from './err/err.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AboutComponent,
+    G1Component,
+    G2Component,
+    G3Component,
+    G4Component,
+    G5Component,
+    G6Component,
+    G7Component,
+    G8Component,
+    G9Component,
+    G10Component,
+    ArticlesComponent,
+    StoreComponent,
+    ProdSingleComponent,
+    ArticleInfoComponent,
+    StyleGuideComponent,
+    ErrComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

@@ -1,0 +1,122 @@
+a {
+    text-decoration: none;
+    color: #1B3764;
+}
+
+* {
+    font-family: 'Cardo', sans-serif;
+}
+
+p ol ul li {
+    font-family: 'Inter';
+}
+
+.yellow-hover:hover {
+    color: #ffca42;
+    transition: all .5s ease;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 75px 0;
+}
+
+.group-1 {
+    flex-direction: column;
+    padding: 75px 0;
+    gap: 1rem;
+    background-color: #1B3764;
+    color: white;
+    text-align: center;
+}
+
+.subtitle-separator {
+    width: 35px;
+    height: 3px;
+    background-color: #ffca42;
+}
+
+.article-info {
+    flex-direction: column;
+
+}
+
+.info-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 852px;
+    padding: 1rem;
+}
+
+.image-container {
+    flex: 0 0 auto;
+}
+
+.span:hover {
+    color: #ffca42;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+ul li::before {
+    content: "\2022";
+    color: #ffca42 !important;
+    margin-right: 0.5em;
+}
+
+.card-quote {
+    width: 100%;
+    padding: 0 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    min-height: 186px;
+    
+}
+
+.quote-text {
+    text-align: center;
+    padding: 1rem;
+}
+
+
+
+.bg-blue {
+    background-color: #1B3764;
+}
+
+.quotes {
+    position: relative;
+}
+
+.blue {
+    color: #1B3764;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.white {
+    color: white
+}
+
+.bg-yellow {
+    background-color: #ffca42;
+}
+
+.yellow {
+    column-rule: #ffca42;
+}
+
+.grey {
+    color: #969aa0;
+}

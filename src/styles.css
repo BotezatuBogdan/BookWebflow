@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+/* 
+* {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+
+@font-face {
+    font-family: 'Cardo';
+    src: url('assets/Fonts/Cardo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url('assets/Fonts/Inter-Medium.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
