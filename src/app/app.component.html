@@ -105,7 +105,7 @@
           </div>
         </div>
 
-        <div class="nav-button fs-15">
+        <div class="nav-button fs-15" [routerLink]="['contact']">
           Contact Us
         </div>
 
@@ -148,7 +148,7 @@
         <a mat-menu-item class="link" href="" [routerLink]="['home']">Home </a>
         <a mat-menu-item class="link" href="" [routerLink]="['about']">About </a>
         <button mat-menu-item [matMenuTriggerFor]="pages">Pages</button>
-        <button mat-menu-item>Contact Us</button>
+        <a mat-menu-item class="link" href="" [routerLink]="['contact']">Contact Us </a>
       </mat-menu>
 
       <mat-menu #pages="matMenu">

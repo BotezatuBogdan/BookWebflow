@@ -36,6 +36,7 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { ErrComponent } from './err/err.component';
 import { PassProtectedComponent } from './pass-protected/pass-protected.component';
 import { ChangelogComponent } from './changelog/changelog.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { ChangelogComponent } from './changelog/changelog.component';
     StyleGuideComponent,
     ErrComponent,
     PassProtectedComponent,
-    ChangelogComponent
+    ChangelogComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { ErrComponent } from './err/err.component';
 import { PassProtectedComponent } from './pass-protected/pass-protected.component';
 import { ChangelogComponent } from './changelog/changelog.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'styleGuide', component: StyleGuideComponent},
   {path:'err', component: ErrComponent},
   {path:'pass', component: PassProtectedComponent},
-  {path:'changelog', component: ChangelogComponent}
+  {path:'changelog', component: ChangelogComponent},
+  {path:'contact', component: ContactComponent}
 ];
 
 @NgModule({
