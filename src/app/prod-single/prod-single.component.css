@@ -80,6 +80,7 @@
     margin: .5rem;
     color: black;
     font-family: 'Cardo';
+    transition: all .5s ease;
 }
 
 .bttn:hover{
@@ -95,12 +96,40 @@
     font-family: 'Cardo';
     background-color: #1B3764;
     color: white;
+    transition: all .5s ease;
 }
 
 .info-text {
     text-align: center;
     max-width: 900px;
     padding: .5rem;
+}
+
+.delivery {
+    padding: 4rem .5rem;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.delivery-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    max-width: 400px;
+    gap: .5rem;
+}
+
+.delivery-img {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -146,4 +175,8 @@
 
 .grey {
     color: #969aa0;
+}
+
+.cardo {
+    font-family: 'Cardo';
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -16,5 +17,12 @@ export class StoreComponent {
     { bookImg: '5', bookTitle: 'The Dark Light - Audio', bookText: 'As the book contains theoretical content as well as solved questions. ', bookPrice: '$ 73.22 USD', bookType: 'Audio' },
     { bookImg: '6', bookTitle: 'The Dark Light - CD', bookText: 'As the book contains theoretical content as well as solved questions. ', bookPrice: '$ 83.55 USD', bookType: 'Audio CD + Printed Book' },
   ]
+
+  constructor(private router: Router) {}
+
+  onClick(index: string) {
+
+    this.router.navigate(['prodSingle'], { queryParams: { id: index } });
+  }
 
 }
