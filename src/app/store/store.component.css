@@ -37,6 +37,7 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    margin: 8rem .5rem;
 }
 
 
@@ -68,9 +69,14 @@
     color: #969aa0;
 }
 
+.blue-gray {
+    color: #b4c7e7;
+}
+
 .book-container {
     padding: 10px;
     flex-direction: column;
+    flex: 0 0 calc(33.33% - 1rem);
 }
 
 
@@ -99,12 +105,14 @@
     object-fit: contain;
     max-width: 250px;
     height: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .book-img {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .book-description {

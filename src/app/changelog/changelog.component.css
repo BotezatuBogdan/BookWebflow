@@ -1,0 +1,99 @@
+* {
+    font-family: 'Cardo', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #1B3764;
+}
+
+.yellow-hover:hover {
+    color: #ffca42;
+    transition: all .5s ease;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 75px 0;
+}
+
+.group-1 {
+    flex-direction: column;
+    padding: 75px 0;
+    gap: 1rem;
+    background-color: #1B3764;
+    color: white;
+    text-align: center;
+}
+
+.subtitle-separator {
+    width: 35px;
+    height: 3px;
+    background-color: #ffca42;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 11rem .5rem;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: Cardo, sans-serif;
+}
+
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    padding: 53px 89px 54px 89px;
+    background: #F3F3F3;
+    box-shadow: 0 0 10px 0 rgba(27, 55, 100, .15);
+}
+
+.circle {
+    border-radius: 100%;
+    padding: 1rem;
+}
+
+.bg-blue {
+    color: #1B3764;
+}
+
+.blue {
+    color: #1B3764;
+}
+
+.blue-gray {
+    color: #b4c7e7;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.white {
+    color: white
+}
+
+.bg-yellow {
+    background-color: #ffca42;
+}
+
+.yellow {
+    column-rule: #ffca42;
+}
+
+.grey {
+    color: #969aa0;
+}

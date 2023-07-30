@@ -12,7 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -32,6 +34,8 @@ import { ProdSingleComponent } from './prod-single/prod-single.component';
 import { ArticleInfoComponent } from './articles/article-info/article-info.component';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { ErrComponent } from './err/err.component';
+import { PassProtectedComponent } from './pass-protected/pass-protected.component';
+import { ChangelogComponent } from './changelog/changelog.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,9 @@ import { ErrComponent } from './err/err.component';
     ProdSingleComponent,
     ArticleInfoComponent,
     StyleGuideComponent,
-    ErrComponent
+    ErrComponent,
+    PassProtectedComponent,
+    ChangelogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +71,10 @@ import { ErrComponent } from './err/err.component';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

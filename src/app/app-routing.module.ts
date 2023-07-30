@@ -8,6 +8,8 @@ import { ProdSingleComponent } from './prod-single/prod-single.component';
 import { ArticleInfoComponent } from './articles/article-info/article-info.component';
 import { StyleGuideComponent } from './style-guide/style-guide.component';
 import { ErrComponent } from './err/err.component';
+import { PassProtectedComponent } from './pass-protected/pass-protected.component';
+import { ChangelogComponent } from './changelog/changelog.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path:'prodSingle', component: ProdSingleComponent},
   {path:'articles/articleInfo', component: ArticleInfoComponent},
   {path:'styleGuide', component: StyleGuideComponent},
-  {path:'err', component: ErrComponent}
+  {path:'err', component: ErrComponent},
+  {path:'pass', component: PassProtectedComponent},
+  {path:'changelog', component: ChangelogComponent}
 ];
 
 @NgModule({

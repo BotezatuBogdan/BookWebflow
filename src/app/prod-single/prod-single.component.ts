@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class ProdSingleComponent {
 
+  infoText:boolean = true;
+
+  showFirsttext() {
+    this.infoText = true;
+  }
+
+  showSecondtext() {
+    this.infoText = false;
+  }
+
 }
