@@ -22,13 +22,12 @@ export class ArticleInfoComponent {
     { cardImg: '9', cardTitle: 'The energy efficiency offers hydrotherapy or swim', cardText: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.', cardLink: 'asd', cardDate: 'Author - 23.05.2022' }
   ]
 
-  // Inside your component class
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      const articleId = +params['id']; // Convert the string parameter to a number
-      // Use the articleId in your component logic
+      const articleId = +params['id'];
       this.imgNumber = articleId.toString();
       console.log(this.imgNumber);
     });

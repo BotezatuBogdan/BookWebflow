@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-g1',
@@ -7,4 +8,10 @@ import { Component, Input } from '@angular/core';
 })
 export class G1Component {
   
+  constructor(private router: Router) {}
+
+  onClick(index: string) {
+    this.router.navigate(['prodSingle'], { queryParams: { id: index } });
+  }
+
 }

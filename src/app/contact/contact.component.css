@@ -45,7 +45,7 @@ h3 {
     height: 70px;
 }
 
-.contact-img-text{
+.contact-img-text {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -85,6 +85,7 @@ mat-form-field {
     .input-row {
         flex-direction: column;
     }
+
     .input-row mat-form-field {
         width: 100%;
     }
@@ -95,6 +96,7 @@ mat-form-field {
     .input-row {
         flex-direction: column;
     }
+
     .input-row mat-form-field {
         width: 100%;
     }
@@ -201,18 +203,20 @@ mat-form-field {
 
 .dropdown {
     transition: all .4s ease !important;
-    width: 70%;
+    width: 800px;
+    height: 50px;
     border-bottom: 1px solid #969aa0;
-    padding-bottom: .5rem;
+    padding-bottom: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
     overflow: hidden;
-    
+    padding-bottom: 1rem;
 }
 
 @media only screen and (max-width: 600px) {
     .dropdown {
         width: 90%;
+        height: 70px;
     }
 }
 
@@ -221,21 +225,28 @@ mat-form-field {
     align-items: center;
     cursor: pointer;
     transition: all .4s ease;
+    
 }
+
 .spacer {
     flex: 1 0;
 }
 
-.dropdown-collapsed {  
-    height: 47px;
+.dropdown-collapsed {
+    height: 130px;
 }
 
-.dropdown-not-collapsed {
-    min-height: 110px;
-}
 
-.dropdown-text {
-    transition: all .4s ease;
+
+@media only screen and (max-width: 600px) {
+    .dropdown-collapsed {
+        height: 200px;
+    }
+
+    .dropdown-text {
+        font-size: 15px !important;
+    }
+
 }
 
 
@@ -303,5 +314,5 @@ mat-form-field {
 
 .grey {
     color: #969aa0;
-    
+
 }

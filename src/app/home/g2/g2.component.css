@@ -60,6 +60,10 @@
     font-weight: bolder;
 }
 
+.book-img {
+    cursor: pointer;
+}
+
 .img {
     object-fit: contain;
     max-width: 250px;

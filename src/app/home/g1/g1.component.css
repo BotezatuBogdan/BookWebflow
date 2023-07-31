@@ -66,13 +66,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: underline;
     cursor: pointer;
 }
 
 .demo-button:hover {
     color: #FFCA42;
     transition: all .5s ease;
+}
+
+.demo {
+    border-bottom: 1px solid white;
+}
+.demo:hover {
+    border-bottom: 1px solid #FFCA42;
 }
 
 .order-button {

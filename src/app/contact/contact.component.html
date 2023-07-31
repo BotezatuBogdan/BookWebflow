@@ -167,15 +167,17 @@
     <h1 class="blue fw-bold"> Frequent Questions? </h1>
     <div class="subtitle-separator "></div>
 
-    <div class="dropdown" [ngClass]="[dropQuestion ? 'dropdown-not-collapsed' : 'dropdown-collapsed']">
+    <div class="dropdown" [ngClass]="[dropQuestions[i] ? 'dropdown-collapsed ' : '']"
+        *ngFor="let q of questions; let i = index">
 
-        <div class="question" (click)="dropAnswer()">
-            <h3 class="blue fw-bold">What is Textbook Rental?</h3>
+        <div class="question" (click)="dropAnswer(i)">
+            <h3 class="blue fw-bold">{{ q.question }}</h3>
             <div class="spacer"></div>
             <div>X</div>
         </div>
-        <div class="grey dropdown-text fs-5 py-3" *ngIf="dropQuestion">Textbook rental is simple! Now at The Bookstore, you can rent a range of
-            textbooks, and then you return them at the end of the Rental Agreement by the Due Date.</div>
+        <div class="grey dropdown-text fs-5 py-3"> {{ q.text }} </div>
+
+
 
     </div>
 

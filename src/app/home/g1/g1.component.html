@@ -12,11 +12,11 @@
       <p class="hero-p">We believe that reading books are essential to a healthy culture. <br>
         They’re where authors can connect with readers.</p>
       <div class="buttons d-flex align-content-center justify-content-center flex-wrap">
-        <div class="order-button">
+        <div class="order-button" (click)="onClick('1')">
           Order Today
         </div>
-        <div class="demo-button">
-          Read Free Demo
+        <div class="demo-button fs-5" [routerLink]="['/contact']">
+          <span class="demo"> Read Free Demo </span>
         </div>
       </div>
 
