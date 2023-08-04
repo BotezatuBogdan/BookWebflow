@@ -86,6 +86,10 @@ a {
     border-radius: 5px 5px 0 0 !important;
 }
 
+.card-text-title {
+    font-size: 22px;
+}
+
 .card-text {
     padding: 8px;
     max-width: 355px;
@@ -145,4 +149,15 @@ a {
 
 .grey {
     color: #969aa0;
+}
+
+.font-19 {
+    font-size: 19px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .font-19 {
+        font-size: 14px;
+    }
 }

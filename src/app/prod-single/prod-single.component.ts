@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartServiceService } from '../cart-service.service';
 
 @Component({
   selector: 'app-prod-single',
@@ -23,7 +25,7 @@ export class ProdSingleComponent {
     {
       bookImg: '1', bookTitle: 'Atomic One’s',
       bookText: 'As the book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.',
-      bookPrice: '$ 13.84 USD',
+      bookPrice: '13.84',
       bookType: 'Printed Book',
       publisher: 'The Hilton Book',
       language: 'English',
@@ -35,7 +37,7 @@ export class ProdSingleComponent {
       bookImg: '2',
       bookTitle: 'Atomic One’s - Audio',
       bookText: 'The book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.',
-      bookPrice: '$ 68.97 USD',
+      bookPrice: '68.97',
       bookType: 'Audio',
       publisher: 'Discovery Book Palace',
       language: 'French',
@@ -47,7 +49,7 @@ export class ProdSingleComponent {
       bookImg: '3',
       bookTitle: 'Atomic One’s - CD',
       bookText: 'The book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.',
-      bookPrice: '$ 27.95 USD',
+      bookPrice: '27.95',
       bookType: 'Audio CD + Printed Book',
       publisher: 'Oxford Book Palace',
       language: 'French',
@@ -60,7 +62,7 @@ export class ProdSingleComponent {
       bookImg: '4',
       bookTitle: 'The Dark Light',
       bookText: 'The book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.',
-      bookPrice: '$ 86.11 USD',
+      bookPrice: '86.11',
       bookType: 'Printed Book',
       publisher: 'Blue Berry Book House',
       language: 'English',
@@ -72,7 +74,7 @@ export class ProdSingleComponent {
       bookImg: '5',
       bookTitle: 'The Dark Light - Audio',
       bookText: 'The book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.',
-      bookPrice: '$ 73.22 USD',
+      bookPrice: '73.22',
       bookType: 'Audio',
       publisher: 'Generic Book Publishers',
       language: 'English',
@@ -84,7 +86,7 @@ export class ProdSingleComponent {
       bookImg: '6',
       bookTitle: 'The Dark Light - CD',
       bookText: 'The book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.',
-      bookPrice: '$ 83.55 USD',
+      bookPrice: '83.55',
       bookType: 'Audio CD + Printed Book',
       publisher: 'The Hilton Book',
       language: 'English',
@@ -94,13 +96,13 @@ export class ProdSingleComponent {
     },
   ]
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, public cartService: CartServiceService ) { }
 
   imgNumber: string = '';
   bookTitle: string = '';
   bookPrice: string = '';
   bookDescription: string = '';
-
+  // quantity:string = '';
   bookType: string = '';
   publisher: string = '';
   language: string = '';
@@ -127,6 +129,23 @@ export class ProdSingleComponent {
       }
 
     });
+  }
+
+  cartItem = { bookNr: '1', price: 'asd', quantity: 'asd', title: 'asd'};
+
+  
+
+  quantity = new FormControl('1');
+
+  addToCart() {
+    this.cartItem.bookNr = this.imgNumber;
+    this.cartItem.price = this.bookPrice;
+    this.cartItem.quantity = this.quantity.value?.toString() ?? '0';
+    this.cartItem.title = this.bookTitle;
+    console.log(this.cartItem);
+    this.cartService.setCartItem(this.cartItem);
+    console.log(this.cartService.getCartItem());
+    
   }
 
 }

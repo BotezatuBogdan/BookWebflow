@@ -1,0 +1,145 @@
+.cart {
+    width: 600px;
+    font-family: 'Cardo';
+    max-height: 80%;
+}
+
+@media only screen and (max-width: 400px) {
+    .cart {
+        width: 230px;
+    }
+}
+
+.cart-head {
+    background-color: #FFCA42;
+    padding: 1rem 0 1rem 1rem;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.cart-content {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    overflow-y: scroll;
+    padding: 1rem;
+}
+
+.item {
+    display: flex;
+    height: 120px;
+    margin: 1rem .3rem;
+}
+
+@media only screen and (max-width: 300px) {
+    .item {
+        margin-top: 2rem;
+    }
+}
+
+.item-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: .5rem;
+}
+
+.item-img {
+    width: auto;
+    height: 100px;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 120px;
+}
+
+.price {
+    margin-bottom: .5rem;
+}
+
+.remove-button:hover {
+    color: #FFCA42;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.item-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-input {
+    width: 4rem;
+    padding-left: 1rem;
+}
+
+.cart-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-button {
+    text-align: center;
+    background-color: #FFCA42;
+    color: #1B3764;
+    border: 1px solid #FFCA42;
+    padding: .5rem;
+    margin: .5rem;
+    cursor: pointer;
+}
+
+.checkout-button:hover {
+    background-color: white;
+    transition: all .5s ease;
+}
+
+.total {
+    margin: .5rem;
+    display: flex;
+}
+
+.spacer {
+    flex: 1 0;
+}
+
+
+.bg-blue {
+    background-color: #1B3764;
+}
+
+.blue {
+    color: #1B3764;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.white {
+    color: white
+}
+
+.bg-yellow {
+    background-color: #ffca42;
+}
+
+.yellow {
+    column-rule: #ffca42;
+}
+
+.grey {
+    color: #969aa0;
+}
+
+.blue-gray {
+    color: #b4c7e7;
+}
+
+.font-19 {
+    font-size: 19px;
+}

@@ -63,6 +63,7 @@
     flex-wrap: wrap;
     max-width: 600px;
     padding: 1rem;
+    font-size: 19px;
 }
 
 .rating {
@@ -107,7 +108,7 @@
 }
 
 .testimonial-text {
-    font-size: 18px;
+    font-size: 19px;
     color: #b4c7e7;
 }
 

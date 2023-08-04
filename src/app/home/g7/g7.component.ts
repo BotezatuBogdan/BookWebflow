@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-g7',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./g7.component.css']
 })
 export class G7Component {
+
+  constructor(private router: Router) {}
+
+  onClick() {
+    this.router.navigate(['contact']);
+  }
 
 }

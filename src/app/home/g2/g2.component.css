@@ -73,10 +73,9 @@
 .book-description {
     margin-top: 0;
     margin-bottom: 20px;
-    font-family: Inter, sans-serif;
+    
     text-align: center;
     color: #969aa0;
-    font-size: 19px;
     line-height: 1.5;
     font-weight: 400;
     max-width: 300px;
@@ -121,4 +120,8 @@
 
 .blue {
     color: #1B3764;
+}
+
+.font-19 {
+    font-size: 19px;
 }

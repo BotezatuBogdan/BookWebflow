@@ -52,7 +52,6 @@
 .group-3-text {
     max-width: 600px;
     height: auto;
-    font-size: 22px;
     line-height: 1.8;
     text-align: left;
     color: #969AA0;
@@ -117,7 +116,7 @@
         flex-direction: column;
     }
     .group-3-text {
-        font-size: 18px;
+        font-size: 14px;
     }
     .qr {
         display: flex;
@@ -154,3 +153,8 @@
     transition: all .5s ease;
     cursor: pointer;
 }
+
+.font-19 {
+    font-size: 19px;
+}
+

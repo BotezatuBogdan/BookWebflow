@@ -14,7 +14,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -37,6 +38,8 @@ import { ErrComponent } from './err/err.component';
 import { PassProtectedComponent } from './pass-protected/pass-protected.component';
 import { ChangelogComponent } from './changelog/changelog.component';
 import { ContactComponent } from './contact/contact.component';
+import { CartComponent } from './cart/cart.component';
+import { CartServiceService } from './cart-service.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,8 @@ import { ContactComponent } from './contact/contact.component';
     ErrComponent,
     PassProtectedComponent,
     ChangelogComponent,
-    ContactComponent
+    ContactComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -76,9 +80,11 @@ import { ContactComponent } from './contact/contact.component';
     MatCheckboxModule,
     MatTabsModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CartServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

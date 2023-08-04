@@ -1,4 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -11,8 +13,9 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   title = 'Book';
-
   collapsed: boolean | undefined;
+
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
     const screenWidth = window.innerWidth;
@@ -34,6 +37,19 @@ export class AppComponent implements OnInit {
     } else {
       this.collapsed = false;
     }
+  }
+
+  onActive() {
+    window.scroll(0,0);
+  }
+
+
+  openDialog() {
+    const dialogRef = this.dialog.open(CartComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 

@@ -79,7 +79,7 @@ ul li::before {
     border-radius: 5px;
     margin: 1rem 0;
     min-height: 186px;
-    
+
 }
 
 .quote-text {
@@ -119,4 +119,15 @@ ul li::before {
 
 .grey {
     color: #969aa0;
+}
+
+.font-19 {
+    font-size: 19px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .font-19 {
+        font-size: 14px;
+    }
 }

@@ -7,7 +7,7 @@
         <div class="right">
 
             <h3 class="blue">{{bookTitle}}</h3>
-            <h2 class="yellow">{{bookPrice}}</h2>
+            <h2 class="yellow">$ {{bookPrice}}  USD</h2>
             <p class="grey prod-description fs-5">
                 {{bookDescription}}
             </p>
@@ -22,9 +22,9 @@
             </div>
 
             <div class="buy">
-                <form action="">
-                    <input type="number" class="quantity" placeholder="Quantity">
-                    <button type="" class="add fs-5 fw-bold">Add to cart</button>
+                <form action="" (ngSubmit)="addToCart()">
+                    <input type="number" class="quantity" placeholder="Quantity" [formControl]="quantity">
+                    <button type="submit" class="add fs-5 fw-bold">Add to cart</button>
                 </form>
             </div>
 

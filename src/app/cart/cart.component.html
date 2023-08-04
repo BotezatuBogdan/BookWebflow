@@ -1,0 +1,45 @@
+<div class="cart">
+
+    <div class="cart-head">My Cart</div>
+
+    <div class="cart-content">
+
+        <div class="item" *ngFor="let item of cartItems">
+
+            <div class="item-img-container"> 
+                <img class="item-img" [src]="'assets/store/' + item.bookNr + '.png'" alt="">
+            </div>
+
+            <div class="item-details">
+                <div class="title fs-3"> {{item.title}}</div>
+                <div class="price grey fs-4"> $ {{ item.price }} </div>
+                <div class="remove-button blue fs-5" (click)="onRemove(item.bookNr)">Remove</div>
+            </div>
+            <div class="spacer"></div>
+            <div class="item-quantity">
+                <input class="item-input" type="number" placeholder="1" [(ngModel)]="item.quantity" (input)="onQuantityChange(item.bookNr)">
+            </div>
+
+            <hr>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+    <div class="cart-footer">
+
+        <div class="total">
+            <p class="blue fw-bold">Subtotal</p>
+            <div class="spacer"></div>
+            <p class="fw-bold">$ {{sum | number: '1.2-2' }}</p>
+        </div>
+
+        <div class="checkout-button fw-bold">
+            Continue to Checkout
+        </div>
+
+    </div>
+
+</div>

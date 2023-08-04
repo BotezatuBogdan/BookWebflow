@@ -59,7 +59,7 @@
     max-width: 400px;
     min-width: 300px;
     flex-wrap: wrap;
-
+    font-size: 19px;
 }
 
 .socials {
@@ -68,7 +68,7 @@
 }
 
 .g2-text {
-    max-width: 500px;
+    max-width: 550px;
     padding: 5px;
     
 }
@@ -227,4 +227,8 @@
 
 .blue-gray {
     color: #b4c7e7;
+}
+
+.font-19 {
+    font-size: 19px;
 }
