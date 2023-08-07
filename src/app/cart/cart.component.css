@@ -1,14 +1,11 @@
 .cart {
-    width: 600px;
+    max-width: 600px;
     font-family: 'Cardo';
-    max-height: 80%;
+
 }
 
-@media only screen and (max-width: 400px) {
-    .cart {
-        width: 230px;
-    }
-}
+
+
 
 .cart-head {
     background-color: #FFCA42;
