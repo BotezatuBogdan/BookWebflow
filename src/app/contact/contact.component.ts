@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackComponent } from '../snack/snack.component';
 
 
 @Component({
@@ -7,6 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+
+  constructor(private _snackBar: MatSnackBar) {}
 
   questions = [
     { question: 'What is Textbook Rental?', text: 'Textbook rental is simple! Now at The Bookstore, you can rent a range of textbooks, and then you return them at the end of the Rental Agreement by the Due Date.' },
@@ -23,6 +27,12 @@ export class ContactComponent {
       if (i !== index) { this.dropQuestions[i] = false; }
     }
     this.dropQuestions[index] = !this.dropQuestions[index];
+  }
+
+  openSnackBar() {
+    this._snackBar.openFromComponent(SnackComponent, {
+      duration: 4000,
+    });
   }
 
 

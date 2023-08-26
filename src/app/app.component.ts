@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from './cart/cart.component';
+import { Router } from '@angular/router';
 
 
 
@@ -15,7 +16,7 @@ export class AppComponent implements OnInit {
   title = 'Book';
   collapsed: boolean | undefined;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private router: Router) {}
 
   ngOnInit() {
     const screenWidth = window.innerWidth;
@@ -41,6 +42,10 @@ export class AppComponent implements OnInit {
 
   onActive() {
     window.scroll(0,0);
+  }
+
+  onClick() {
+    this.router.navigate(['store']);
   }
 
 
