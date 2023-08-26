@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackComponent } from '../snack/snack.component';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,6 +10,14 @@ import { SnackComponent } from '../snack/snack.component';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+
+  contactForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    mail: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', [Validators.required, Validators.pattern('[- +()0-9]+')]),
+    message: new FormControl('', Validators.required),
+    check: new FormControl('', Validators.required)
+  })
 
   constructor(private _snackBar: MatSnackBar) {}
 
@@ -33,6 +42,13 @@ export class ContactComponent {
     this._snackBar.openFromComponent(SnackComponent, {
       duration: 4000,
     });
+  }
+
+  onSubmit() {
+    if(this.contactForm.valid) {
+      this.openSnackBar();
+    }
+    
   }
 
 

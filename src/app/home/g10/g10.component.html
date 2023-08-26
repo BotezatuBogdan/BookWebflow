@@ -1,19 +1,31 @@
 <div class="group-10">
 
-    <div class="updates">
+    <div class="updates" >
 
         <h2 class="fw-bold">Get The Best Updates</h2>
         <div class="subtitle-separator my-4"></div>
         <div class="text">Subscribe with your mail id to know the current update in book
             edition at your fingertip with in a minute.
         </div>
-        <form class="my-4" action="">
-            <div class="form">
-                <input class="input" type="email" placeholder="Email Address">
-                <button class="subscribe" (click)="openSnackBar()">Subscribe</button>
 
+        <form class="my-4" (ngSubmit)="onSubmit()" [formGroup]="mailForm" *ngIf="!submitted">
+            <div class="form">
+                <input class="input" id="mail" name="mail" type="email" placeholder="Email Address"
+                    formControlName="mail">
+                <button class="subscribe" type="submit">Subscribe</button>
+            </div>
+            <div class="err-mail" *ngIf="mailForm.invalid && (mailForm.dirty || mailForm.touched)">
+                Please insert a valid mail address
             </div>
         </form>
+
+        <div class="my-4 text" *ngIf="submitted">
+            Thank you for subscribing! <br> You will receive updates on our books!
+        </div>
+
+        
+
     </div>
+
 
 </div>

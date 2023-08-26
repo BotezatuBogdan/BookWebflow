@@ -90,6 +90,7 @@
 
 .book-title {
     font-size: 32px;
+    height: 78px;
     font-weight: bolder;
     color: #1B3764;
 }
@@ -165,6 +166,7 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
+    height: 3rem;
 }
 
 h4 {

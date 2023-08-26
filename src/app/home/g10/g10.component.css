@@ -5,7 +5,8 @@
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    color: #1B3764
+    color: #1B3764;
+    transform: all .5s ease;
 }
 
 .group-10 {
@@ -17,6 +18,7 @@
     width: 90%;
     padding: 1rem;
     height: 490px;
+
 }
 
 .subtitle-separator {
@@ -36,7 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     flex-direction: row;
 }
 
@@ -65,7 +67,19 @@
     transition: all .5s ease;
 }
 
+.err-mail {
+    padding: .5rem;
+    color: red;
+    font-weight: bold;
+}
+
+
 @media only screen and (max-width: 800px) {
+
+    .updates {
+        padding-top: 2rem;
+        
+    }
 
     .form {
         flex-direction: column;
@@ -84,6 +98,7 @@
         flex-shrink: 0;
         border: 0px solid transparent;
     }
+
     .updates {
         height: auto;
     }

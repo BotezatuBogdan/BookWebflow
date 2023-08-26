@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackComponent } from 'src/app/snack/snack.component';
 
@@ -9,12 +10,25 @@ import { SnackComponent } from 'src/app/snack/snack.component';
 })
 export class G10Component {
 
-  constructor(private _snackBar: MatSnackBar) {}
+  submitted = false;
+
+  mailForm = new FormGroup({
+    mail: new FormControl('', [Validators.required, Validators.email])
+  })
+
+  constructor(private _snackBar: MatSnackBar) { }
 
   openSnackBar() {
     this._snackBar.openFromComponent(SnackComponent, {
       duration: 4000,
     });
+  }
+
+  onSubmit() {
+    if (this.mailForm.valid) {
+      this.submitted = true;
+    }
+
   }
 
 }
