@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -42,6 +43,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CartComponent } from './cart/cart.component';
 import { CartServiceService } from './cart-service.service';
 import { SnackComponent } from './snack/snack.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { SnackComponent } from './snack/snack.component';
     ChangelogComponent,
     ContactComponent,
     CartComponent,
-    SnackComponent
+    SnackComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,8 @@ import { SnackComponent } from './snack/snack.component';
     FormsModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule
   ],
   providers: [CartServiceService],
   bootstrap: [AppComponent]

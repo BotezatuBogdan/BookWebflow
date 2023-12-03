@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartServiceService } from '../cart-service.service';
 
@@ -96,7 +96,7 @@ export class ProdSingleComponent {
     },
   ]
 
-  constructor(private route: ActivatedRoute, private router: Router, public cartService: CartServiceService ) { }
+  constructor(private route: ActivatedRoute, private router: Router, public cartService: CartServiceService) { }
 
   imgNumber: string = '';
   bookTitle: string = '';
@@ -131,21 +131,18 @@ export class ProdSingleComponent {
     });
   }
 
-  cartItem = { bookNr: '1', price: 'asd', quantity: 'asd', title: 'asd'};
+  cartItem = { bookNr: '1', price: '', quantity: '', title: '' };
 
-  
-
-  quantity = new FormControl('1');
+  quantity = new FormControl('1', [Validators.min(1)]);
 
   addToCart() {
-    this.cartItem.bookNr = this.imgNumber;
-    this.cartItem.price = this.bookPrice;
-    this.cartItem.quantity = this.quantity.value?.toString() ?? '0';
-    this.cartItem.title = this.bookTitle;
-    console.log(this.cartItem);
-    this.cartService.setCartItem(this.cartItem);
-    console.log(this.cartService.getCartItem());
-    
+    if (this.quantity.valid) {
+      this.cartItem.bookNr = this.imgNumber;
+      this.cartItem.price = this.bookPrice;
+      this.cartItem.quantity = this.quantity.value?.toString() ?? '0';
+      this.cartItem.title = this.bookTitle;
+      this.cartService.setCartItem(this.cartItem);
+    }
   }
 
 }

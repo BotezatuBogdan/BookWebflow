@@ -44,8 +44,12 @@ export class AppComponent implements OnInit {
     window.scroll(0,0);
   }
 
-  onClick() {
+  onOrderClick() {
     this.router.navigate(['store']);
+  }
+
+  logoClick() {
+    this.router.navigate(['home']);
   }
 
 

@@ -26,6 +26,11 @@
 
 }
 
+.g7-chapters {
+    display: flex;
+    flex-direction: column;
+}
+
 .chapter {
     background-color: white;
     padding: 2rem;

@@ -11,6 +11,7 @@ import { ErrComponent } from './err/err.component';
 import { PassProtectedComponent } from './pass-protected/pass-protected.component';
 import { ChangelogComponent } from './changelog/changelog.component';
 import { ContactComponent } from './contact/contact.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path:'err', component: ErrComponent},
   {path:'pass', component: PassProtectedComponent},
   {path:'changelog', component: ChangelogComponent},
-  {path:'contact', component: ContactComponent}
+  {path:'contact', component: ContactComponent},
+  {path:'payment', component: PaymentComponent}
 ];
 
 @NgModule({
