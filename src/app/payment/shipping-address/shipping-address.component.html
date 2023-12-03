@@ -1,7 +1,98 @@
-<div class="title-container">
+<div class="container">
 
-    <div class="round-number"> 1 </div>
-    <div class="title-text">Contact Details</div>
-    
+    <div class="container-part">
+        <div class="title-container">
+            <div class="round-number"> 2 </div>
+            <div class="title-text">Contact Details</div>
+        </div>
+
+        <div class="inputs">
+
+            <mat-form-field appearance="outline" class="shipment-input">
+                <mat-label>Full name</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="shipment-input">
+                <mat-label>Email</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="shipment-input">
+                <mat-label>Phone number</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+
+    <div class="container-part">
+        <div class="title-container">
+            <div class="round-number"> 3 </div>
+            <div class="title-text">Shipping Address</div>
+        </div>
+
+        <div class="inputs">
+
+            <mat-form-field appearance="outline" class="shipment-input">
+                <mat-label>Address Line 1</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="shipment-input">
+                <mat-label>Address Line 2</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="shipment-input">
+                <mat-label>City</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="shipment-input">
+                <mat-label>State / Province / Region</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="shipment-input">
+                <mat-label>ZIP / Postal Code</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Country" [matAutocomplete]="auto" [formControl]="inputControl">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let country of filteredCountries | async" [value]="country.name">
+                    {{ country.name }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+              
+
+        </div>
+
+    </div>
+
+
+    <div class="container-part">
+        <div class="title-container">
+            <div class="round-number"> 4 </div>
+            <div class="title-text">Shipping Method</div>
+        </div>
+
+    </div>
+
+
+    <div class="container-part">
+        <div class="title-container">
+            <div class="round-number"> 4 </div>
+            <div class="title-text">Payment</div>
+        </div>
+
+    </div>
 
 </div>

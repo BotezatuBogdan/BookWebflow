@@ -19,6 +19,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 import { HomeComponent } from './home/home.component';
@@ -99,7 +101,9 @@ import { CardComponent } from './payment/card/card.component';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatAutocompleteModule
   ],
   providers: [CartServiceService],
   bootstrap: [AppComponent]

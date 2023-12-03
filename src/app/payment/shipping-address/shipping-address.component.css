@@ -1,3 +1,37 @@
+
+
 .title-container {
-    
+    display: flex;
+}
+
+.round-number,
+.title-text {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.round-number {
+    width: 3rem;
+    height: 3rem;
+    background-color: #1b3764;
+    color: #ffca42;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-text {
+    padding: .5rem .5rem;
+    color: #1b3764;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.shipment-input {
+    width: 600px;
 }
