@@ -1,0 +1,81 @@
+
+.container,
+.card-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.payment-component {
+  width: 100vW;
+  flex-direction: column;
+}
+
+.container {
+  gap: 1rem;
+  margin: 1rem 0 3rem 0;
+}
+
+
+.card-details {
+  flex-direction: column;
+  background-color: #969aa067;
+  padding: 1rem;
+  border-radius: 16px;
+
+}
+
+.card {
+  width: 300px;
+  height: 180px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.card-chip {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.card-number {
+  font-size: 18px;
+  margin-top: 50px;
+}
+
+.card-holder {
+  font-size: 14px;
+}
+
+.expiry-date,
+.cvv {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.card-number-input,
+.card-Name-input {
+  width: 100%;
+}
+
+.card-row {
+  gap: .5rem;
+}
+
+.card-Month-input,
+.card-Year-input,
+.card-CVV-input {
+  width: 95px;
+}
+
+

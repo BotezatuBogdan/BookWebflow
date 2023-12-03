@@ -1,26 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookDbService } from '../services/book-db.service';
+import { bookList } from '../data/book-data';
 
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.css']
 })
-export class StoreComponent implements OnInit {
+export class StoreComponent {
 
-  bookList: any[] = [];
 
   constructor(private bookDbService: BookDbService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.bookDbService.getBooks().subscribe((books) => {
-      this.bookList = books;
-    });
-  }
+  books = bookList;
+
 
   onClick(index: string) {
     this.router.navigate(['prodSingle'], { queryParams: { id: index } });
   }
 
+  
 }

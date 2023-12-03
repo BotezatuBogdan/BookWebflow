@@ -16,16 +16,7 @@
   "profile": {
     "name": "typicode"
   },
-  "cart": [
-    {
-      "id": "",
-      "bookNr": "",
-      "price": "",
-      "quantity": "",
-      "title": ""
-    }
-  ],
-  "bookList": [
+  "bookList": [ 
     {
       "bookImg": "1",
       "bookTitle": "Atomic One’s",

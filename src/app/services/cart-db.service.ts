@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 export class CartDbService {
 
   private cartKey = 'shoppingCart';
-  
+  private cartItemsSubject = new BehaviorSubject<any[]>(this.getCartItems());
+
   constructor() { }
 
   private getCartItems(): any[] {
@@ -17,6 +18,11 @@ export class CartDbService {
 
   private setCartItems(items: any[]): void {
     localStorage.setItem(this.cartKey, JSON.stringify(items));
+    this.cartItemsSubject.next(items); // Notify observers
+  }
+
+  getCartItemsObservable(): Observable<any[]> {
+    return this.cartItemsSubject.asObservable();
   }
 
   getCart(): any[] {
@@ -39,14 +45,25 @@ export class CartDbService {
     }
 
     this.setCartItems(cartItems);
-}
+  }
 
-  updateCartItem(updatedItem: any): void {
+  updateCartItemFromPayment(updatedItem: any): void {
+
+    const cartItems = this.getCartItems();
+    const index = cartItems.findIndex((item) => item.bookNr === updatedItem.img);
+
+    if (index !== -1) {
+      cartItems[index].quantity = updatedItem.quantity;
+      this.setCartItems(cartItems);
+    }
+  }
+
+  updateCartItemFromCart(updatedItem: any) {
     const cartItems = this.getCartItems();
     const index = cartItems.findIndex((item) => item.bookNr === updatedItem.bookNr);
 
     if (index !== -1) {
-      cartItems[index] = updatedItem;
+      cartItems[index].quantity = updatedItem.quantity;
       this.setCartItems(cartItems);
     }
   }
@@ -60,6 +77,4 @@ export class CartDbService {
       this.setCartItems(cartItems);
     }
   }
-
-
 }

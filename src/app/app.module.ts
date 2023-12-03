@@ -43,9 +43,12 @@ import { PassProtectedComponent } from './pass-protected/pass-protected.componen
 import { ChangelogComponent } from './changelog/changelog.component';
 import { ContactComponent } from './contact/contact.component';
 import { CartComponent } from './cart/cart.component';
-import { CartServiceService } from './cart-service.service';
 import { SnackComponent } from './snack/snack.component';
 import { PaymentComponent } from './payment/payment.component';
+import { CartServiceService } from './cart-service.service';
+import { CartReviewComponent } from './payment/cart-review/cart-review.component';
+import { ShippingAddressComponent } from './payment/shipping-address/shipping-address.component';
+import { CardComponent } from './payment/card/card.component';
 
 @NgModule({
   declarations: [
@@ -71,9 +74,12 @@ import { PaymentComponent } from './payment/payment.component';
     PassProtectedComponent,
     ChangelogComponent,
     ContactComponent,
-    CartComponent,
     SnackComponent,
-    PaymentComponent
+    PaymentComponent,
+    CartComponent,
+    CartReviewComponent,
+    ShippingAddressComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

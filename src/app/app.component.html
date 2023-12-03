@@ -178,11 +178,11 @@
 
 </mat-toolbar>
 
+<ng-container class="body">
 
+  <router-outlet (activate)="onActive()"></router-outlet>
 
-<router-outlet (activate)="onActive()"></router-outlet>
-
-
+</ng-container>
 
 <div class="footer">
 

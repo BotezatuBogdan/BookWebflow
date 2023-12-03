@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CartServiceService } from '../cart-service.service';
 import { Router } from '@angular/router';
 import { CartDbService } from '../services/cart-db.service';
 
@@ -14,7 +13,7 @@ export class CartComponent implements OnInit {
   newItem: any;
   sum: number = 0;
 
-  constructor(public cartService: CartServiceService, private cartDB: CartDbService, private router: Router) { }
+  constructor(private cartDB: CartDbService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadCartItems();
@@ -29,29 +28,31 @@ export class CartComponent implements OnInit {
 
   onRemove(index: number) {
     const itemToRemove = this.cartItems.find(item => item.bookNr === index);
-  
+
     if (itemToRemove) {
       this.cartDB.removeCartItem(itemToRemove.bookNr);
       this.loadCartItems();
       this.updateSum();
     }
   }
-  
+
   private updateSum() {
     this.sum = this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   }
 
-  onQuantityChange(index: number) {
+  onQuantityChange(index: number, quantity:any) {
     const itemToUpdate = this.cartItems.find(item => item.bookNr === index);
-  
+
     if (itemToUpdate) {
-      itemToUpdate.quantity = +itemToUpdate.quantity;
-  
+      itemToUpdate.quantity = quantity;
+
       if (itemToUpdate.quantity < 1) {
         this.onRemove(index);
+      } else {
+        this.cartDB.updateCartItemFromCart(itemToUpdate);
       }
     }
-  
+
     this.updateSum();
   }
 
