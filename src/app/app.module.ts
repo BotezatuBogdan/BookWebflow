@@ -18,6 +18,8 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -90,7 +92,8 @@ import { PaymentComponent } from './payment/payment.component';
     MatDialogModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [CartServiceService],
   bootstrap: [AppComponent]

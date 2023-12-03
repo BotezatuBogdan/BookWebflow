@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartServiceService } from '../cart-service.service';
 import { Router } from '@angular/router';
+import { CartDbService } from '../services/cart-db.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,49 +14,45 @@ export class CartComponent implements OnInit {
   newItem: any;
   sum: number = 0;
 
-  constructor(public cartService: CartServiceService, private router: Router) { }
+  constructor(public cartService: CartServiceService, private cartDB: CartDbService, private router: Router) { }
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.getCartItem();
+    this.loadCartItems();
+    this.updateSum();
+    console.log
+  }
 
-
-    this.cartItems.forEach(item => {
-      this.sum += (item.price * item.quantity);
-    })
+  private loadCartItems() {
+    this.cartItems = this.cartDB.getCart();
+    // Optionally, you can perform additional actions after loading cart items
   }
 
   onRemove(index: number) {
-    for (let i = 0; i < this.cartItems.length; i++) {
-      if (this.cartItems[i].bookNr === index) {
-        this.cartItems.splice(i, 1);
-      }
+    const itemToRemove = this.cartItems.find(item => item.bookNr === index);
+  
+    if (itemToRemove) {
+      this.cartDB.removeCartItem(itemToRemove.bookNr);
+      this.loadCartItems();
+      this.updateSum();
     }
-
-    this.sum = 0;
-    this.cartItems.forEach(item => {
-      this.sum += (item.price * item.quantity);
-    })
-
-
+  }
+  
+  private updateSum() {
+    this.sum = this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   }
 
   onQuantityChange(index: number) {
     const itemToUpdate = this.cartItems.find(item => item.bookNr === index);
-
+  
     if (itemToUpdate) {
-      itemToUpdate.quantity = parseInt(itemToUpdate.quantity);
-
-      if(itemToUpdate.quantity < 1) {
-          this.onRemove(index);
+      itemToUpdate.quantity = +itemToUpdate.quantity;
+  
+      if (itemToUpdate.quantity < 1) {
+        this.onRemove(index);
       }
-
     }
-
-    this.sum = 0;
-    this.cartItems.forEach(item => {
-      this.sum += (item.price * item.quantity);
-    })
-
+  
+    this.updateSum();
   }
 
   goToPayment() {
@@ -64,6 +61,5 @@ export class CartComponent implements OnInit {
     }
 
   }
-
 
 }

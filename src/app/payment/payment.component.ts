@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartServiceService } from '../cart-service.service';
+import { CartDbService } from '../services/cart-db.service';
 
 @Component({
   selector: 'app-payment',
@@ -16,10 +17,10 @@ export class PaymentComponent implements OnInit {
   displayedColumns: string[] = ['Image', 'Title', 'Quantity', 'Price'];
   tableItems: { position: number, title: string, quantity: string, price: number, img: number }[] = [];
 
-  constructor(public cartService: CartServiceService, private router: Router) { }
+  constructor(private cartDB: CartDbService, private router: Router) { }
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.getCartItem();
+    this.cartItems = this.cartDB.getCart();
 
 
     this.cartItems.forEach(item => {

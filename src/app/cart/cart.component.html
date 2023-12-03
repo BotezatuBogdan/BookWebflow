@@ -6,7 +6,7 @@
 
 
         <div *ngIf="cartItems && cartItems.length; else noItems">
-            <div class="item" *ngFor="let item of cartItems">
+            <div class="item" *ngFor="let item of cartItems ">
 
                 <div class="item-img-container">
                     <img class="item-img" [src]="'assets/store/' + item.bookNr + '.png'" alt="">

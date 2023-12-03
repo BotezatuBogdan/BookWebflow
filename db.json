@@ -1,0 +1,102 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "cart": [
+    {
+      "id": "",
+      "bookNr": "",
+      "price": "",
+      "quantity": "",
+      "title": ""
+    }
+  ],
+  "bookList": [
+    {
+      "bookImg": "1",
+      "bookTitle": "Atomic One’s",
+      "bookText": "As the book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.",
+      "bookPrice": "13.84",
+      "bookType": "Printed Book",
+      "publisher": "The Hilton Book",
+      "language": "English",
+      "paperback": "256",
+      "isbn": "98547152365",
+      "dimensions": "20 x 14 x 4cm"
+    },
+    {
+      "bookImg": "2",
+      "bookTitle": "Atomic One’s - Audio",
+      "bookText": "The book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.",
+      "bookPrice": "68.97",
+      "bookType": "Audio",
+      "publisher": "Discovery Book Palace",
+      "language": "French",
+      "paperback": "180",
+      "isbn": "98547152365",
+      "dimensions": "20 x 14 x 4cm"
+    },
+    {
+      "bookImg": "3",
+      "bookTitle": "Atomic One’s - CD",
+      "bookText": "The book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.",
+      "bookPrice": "27.95",
+      "bookType": "Audio CD + Printed Book",
+      "publisher": "Oxford Book Palace",
+      "language": "French",
+      "paperback": "175",
+      "isbn": "84512654849",
+      "dimensions": "20 x 18cm"
+    },
+    {
+      "bookImg": "4",
+      "bookTitle": "The Dark Light",
+      "bookText": "The book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.",
+      "bookPrice": "86.11",
+      "bookType": "Printed Book",
+      "publisher": "Blue Berry Book House",
+      "language": "English",
+      "paperback": "245",
+      "isbn": "98547152367",
+      "dimensions": "20 x 14 x 4cm"
+    },
+    {
+      "bookImg": "5",
+      "bookTitle": "The Dark Light - Audio",
+      "bookText": "The book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.",
+      "bookPrice": "73.22",
+      "bookType": "Audio",
+      "publisher": "Generic Book Publishers",
+      "language": "English",
+      "paperback": "247",
+      "isbn": "98547125417",
+      "dimensions": "20 x 28 x 4cm"
+    },
+    {
+      "bookImg": "6",
+      "bookTitle": "The Dark Light - CD",
+      "bookText": "The book contains ample theoretical content as well as a number of solved questions, it for sure will help aspirants succeed in learning and writing English proficiently.",
+      "bookPrice": "83.55",
+      "bookType": "Audio CD + Printed Book",
+      "publisher": "The Hilton Book",
+      "language": "English",
+      "paperback": "198",
+      "isbn": "98541152365",
+      "dimensions": "20 x 24 x 4cm"
+    }
+  ]
+}
