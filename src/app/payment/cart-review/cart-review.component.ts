@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CartDbService } from 'src/app/services/cart-db.service';
 
@@ -19,7 +18,7 @@ export class CartReviewComponent implements OnInit, OnDestroy {
   
   private cartSubscription!: Subscription;
 
-  constructor(private cartDB: CartDbService, private router: Router) { }
+  constructor(private cartDB: CartDbService) { }
 
   ngOnInit(): void {
     this.cartItems = this.cartDB.getCart();

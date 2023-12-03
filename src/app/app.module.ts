@@ -21,6 +21,7 @@ import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 import { HomeComponent } from './home/home.component';
@@ -103,7 +104,8 @@ import { CardComponent } from './payment/card/card.component';
     MatTableModule,
     HttpClientModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatRadioModule
   ],
   providers: [CartServiceService],
   bootstrap: [AppComponent]

@@ -1,46 +1,97 @@
-<div class="container">
+<div class="container-part">
+    <div class="title-container">
+        <div class="round-number"> 5 </div>
+        <div class="title-text">Payment</div>
+    </div>
 
-    <div class="card-details">
+</div>
 
-        <div class="card">
-            <div class="chip"> <img class="card-chip" src="\assets\chip.png" alt=""> </div>
-            <div class="card-number">
-                **** **** **** 1234
+<div class="container gap-5">
+
+    <div class="left">
+
+        <div class="cart-table">
+
+            <table mat-table [dataSource]="cartItems" class="mat-elevation-z8">
+    
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Title">
+                    <th mat-header-cell *matHeaderCellDef> Title </th>
+                    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                </ng-container>
+    
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Quantity">
+                    <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+                </ng-container>
+    
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Price">
+                    <th mat-header-cell *matHeaderCellDef> Price </th>
+                    <td mat-cell *matCellDef="let element"> ${{element.price | number: '1.2-2'}} </td>
+                </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <div>
+                
             </div>
-            <div class="card-holder">Cardholder Name</div>
-            <div class="d-flex gap-5">
-                <div class="expiry-date">Expiry date</div>
-                <div class="cvv">CVV</div>
-            </div>
-        </div>
 
-        <mat-form-field appearance="outline" class="card-number-input">
-            <mat-label>Card Number</mat-label>
-            <input matInput >
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="card-Name-input">
-            <mat-label>Cardholder Name</mat-label>
-            <input matInput >
-        </mat-form-field>
-
-        <div class="card-row d-flex">
-            <mat-form-field appearance="outline" class="card-Month-input">
-                <mat-label>Month</mat-label>
-                <input matInput >
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="card-Year-input">
-                <mat-label>Year</mat-label>
-                <input matInput >
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="card-CVV-input">
-                <mat-label>CVV</mat-label>
-                <input matInput>
-            </mat-form-field>
         </div>
 
     </div>
+
+
+    <div class="right">
+
+        
+
+        <div class="card-details">
+
+            <div class="card">
+                <div class="chip"> <img class="card-chip" src="\assets\chip.png" alt=""> </div>
+                <div class="card-number">
+                    **** **** **** 1234
+                </div>
+                <div class="card-holder">Cardholder Name</div>
+                <div class="d-flex gap-5">
+                    <div class="expiry-date">Expiry date</div>
+                    <div class="cvv">CVV</div>
+                </div>
+            </div>
+
+            <mat-form-field appearance="outline" class="card-number-input">
+                <mat-label>Card Number</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="card-Name-input">
+                <mat-label>Cardholder Name</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <div class="card-row d-flex">
+                <mat-form-field appearance="outline" class="card-Month-input">
+                    <mat-label>Month</mat-label>
+                    <input matInput>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="card-Year-input">
+                    <mat-label>Year</mat-label>
+                    <input matInput>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="card-CVV-input">
+                    <mat-label>CVV</mat-label>
+                    <input matInput>
+                </mat-form-field>
+            </div>
+
+        </div>
+    </div>
+
 
 </div>

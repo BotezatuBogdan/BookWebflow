@@ -77,22 +77,21 @@
 
     </div>
 
-
     <div class="container-part">
         <div class="title-container">
             <div class="round-number"> 4 </div>
             <div class="title-text">Shipping Method</div>
         </div>
-
     </div>
 
-
-    <div class="container-part">
-        <div class="title-container">
-            <div class="round-number"> 4 </div>
-            <div class="title-text">Payment</div>
+    <div>
+        <div *ngFor="let method of deliveryMethods">
+            <mat-radio-group [(ngModel)]="selectedDeliveryMethod" (change)="updateSelectedDeliveryPrice()">
+                <mat-radio-button [value]="method" color="primary">{{ method }}</mat-radio-button>
+            </mat-radio-group>
         </div>
-
+        <div>Delivery Cost: {{ selectedDeliveryPrice }}</div>
     </div>
+
 
 </div>
