@@ -35,3 +35,25 @@
 .shipment-input {
     width: 600px;
 }
+
+.next-previous-container {
+    display: flex;
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .next-previous-button {
+    border: 1px solid transparent;
+    width: 120px;
+    padding: 10px 5px;
+    background-color: #ffca42;
+    color: #1b3764;
+    transition: all .5s ease;
+  }
+  
+  .next-previous-button:hover {
+    border: 1px solid #1b3764;
+    background-color: transparent;
+  }

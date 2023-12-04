@@ -10,18 +10,25 @@ import { Subscription } from 'rxjs';
 })
 export class PaymentComponent  {
 
+  isShippingAddressFormValid = false;
+
   selectedTabIndex: number = 0;
   maxNumberOfTabs: number = 2;
   
-  nextStep() {
+  onNext(event: any): void {
     if (this.selectedTabIndex != this.maxNumberOfTabs) {
       this.selectedTabIndex = this.selectedTabIndex + 1;
     }
   }
 
-  previousStep() {
+  onPrevious(event: any): void {
     if (this.selectedTabIndex != 0) {
       this.selectedTabIndex = this.selectedTabIndex - 1;
     }
+  }
+
+  handleFormValid(valid: boolean): void {
+    // Update the form validity status for the shipping address tab
+    this.isShippingAddressFormValid = valid;
   }
 }

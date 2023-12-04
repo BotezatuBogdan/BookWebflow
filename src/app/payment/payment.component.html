@@ -1,67 +1,21 @@
 <div class="payment-component">
-
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" [selectedIndex]="selectedTabIndex">
-        <mat-tab label="1">
-
+        <mat-tab label="Cart" disabled>
             <div class="container">
                 <div class="card-review">
-                    <app-cart-review></app-cart-review>
-
-
-                </div>
-
-                <div class="next-previous-container">
-                    <button class="next-previous-button" (click)="nextStep()">
-                        Next
-                    </button>
+                    <app-cart-review (next)="onNext($event)"></app-cart-review>
                 </div>
             </div>
-
-
         </mat-tab>
-        <mat-tab label="2">
-
+        <mat-tab label="Shipping Address" disabled>
             <div class="container">
-
-                <app-shipping-address></app-shipping-address>
-
-                <div class="next-previous-container">
-
-                    <button class="next-previous-button" (click)="previousStep()">
-                        Previous
-                    </button>
-                    <button class="next-previous-button" (click)="nextStep()">
-                        Next
-                    </button>
-
-
-                </div>
-
+                <app-shipping-address (next)="onNext($event)" (previous)="onPrevious($event)"></app-shipping-address>
             </div>
-
         </mat-tab>
-
-        <mat-tab label="3">
+        <mat-tab label="Payment" disabled>
             <div class="container">
-
-                <app-card></app-card>
-
-                <div class="next-previous-container">
-
-                    <button class="next-previous-button" (click)="previousStep()">
-                        Previous
-                    </button>
-                    <button class="next-previous-button" (click)="nextStep()">
-                        Done
-                    </button>
-
-                </div>
-
+                <app-card (previous)="onPrevious($event)"></app-card>
             </div>
-
         </mat-tab>
-
     </mat-tab-group>
-
-
 </div>

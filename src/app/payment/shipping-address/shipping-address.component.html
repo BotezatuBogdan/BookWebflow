@@ -1,81 +1,78 @@
 <div class="container">
+    <form [formGroup]="addressForm" (ngSubmit)="submitForm()">
 
-    <div class="container-part">
-        <div class="title-container">
-            <div class="round-number"> 2 </div>
-            <div class="title-text">Contact Details</div>
+        <!-- Contact Details -->
+        <div class="container-part">
+            <div class="title-container">
+                <div class="round-number"> 2 </div>
+                <div class="title-text">Contact Details</div>
+            </div>
+    
+            <div class="inputs">
+                <mat-form-field appearance="outline" class="shipment-input">
+                    <mat-label>Full name</mat-label>
+                    <input matInput formControlName="fullName">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="shipment-input">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="shipment-input">
+                    <mat-label>Phone number</mat-label>
+                    <input matInput formControlName="phoneNumber">
+                </mat-form-field>
+            </div>
         </div>
-
-        <div class="inputs">
-
-            <mat-form-field appearance="outline" class="shipment-input">
-                <mat-label>Full name</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="shipment-input">
-                <mat-label>Email</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="shipment-input">
-                <mat-label>Phone number</mat-label>
-                <input matInput>
-            </mat-form-field>
-
+    
+        <hr>
+    
+        <!-- Shipping Address -->
+        <div class="container-part">
+            <div class="title-container">
+                <div class="round-number"> 3 </div>
+                <div class="title-text">Shipping Address</div>
+            </div>
+    
+            <div class="inputs">
+                <mat-form-field appearance="outline" class="shipment-input">
+                    <mat-label>Address Line 1</mat-label>
+                    <input matInput formControlName="addressLine1">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="shipment-input">
+                    <mat-label>Address Line 2</mat-label>
+                    <input matInput formControlName="addressLine2">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="shipment-input">
+                    <mat-label>City</mat-label>
+                    <input matInput formControlName="city">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="shipment-input">
+                    <mat-label>State / Province / Region</mat-label>
+                    <input matInput formControlName="state">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" class="shipment-input">
+                    <mat-label>ZIP / Postal Code</mat-label>
+                    <input matInput formControlName="postalCode">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <input matInput placeholder="Country" [matAutocomplete]="auto" formControlName="country">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let country of filteredCountries$ | async" [value]="country.name">
+                            {{ country.name }}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
         </div>
-
-    </div>
-
-    <hr>
-
-
-    <div class="container-part">
-        <div class="title-container">
-            <div class="round-number"> 3 </div>
-            <div class="title-text">Shipping Address</div>
-        </div>
-
-        <div class="inputs">
-
-            <mat-form-field appearance="outline" class="shipment-input">
-                <mat-label>Address Line 1</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="shipment-input">
-                <mat-label>Address Line 2</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="shipment-input">
-                <mat-label>City</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="shipment-input">
-                <mat-label>State / Province / Region</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline" class="shipment-input">
-                <mat-label>ZIP / Postal Code</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input matInput placeholder="Country" [matAutocomplete]="auto" [formControl]="inputControl">
-                <mat-autocomplete #auto="matAutocomplete">
-                  <mat-option *ngFor="let country of filteredCountries | async" [value]="country.name">
-                    {{ country.name }}
-                  </mat-option>
-                </mat-autocomplete>
-              </mat-form-field>
-              
-
-        </div>
-
-    </div>
+    </form>
+    
 
     <div class="container-part">
         <div class="title-container">
@@ -87,10 +84,20 @@
     <div>
         <div *ngFor="let method of deliveryMethods">
             <mat-radio-group [(ngModel)]="selectedDeliveryMethod" (change)="updateSelectedDeliveryPrice()">
-                <mat-radio-button [value]="method" color="primary">{{ method }}</mat-radio-button>
+                <mat-radio-button [value]="method" color="primary" >{{ method
+                    }}</mat-radio-button>
             </mat-radio-group>
         </div>
         <div>Delivery Cost: {{ selectedDeliveryPrice }}</div>
+    </div>
+
+
+
+    <div class="next-previous-container">
+        <button class="next-previous-button" (click)="previousStep()">Previous</button>
+        <button class="next-previous-button" (click)="submitForm()">
+            Next
+        </button>
     </div>
 
 

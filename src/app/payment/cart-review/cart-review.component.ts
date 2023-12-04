@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CartDbService } from 'src/app/services/cart-db.service';
 
@@ -8,6 +8,8 @@ import { CartDbService } from 'src/app/services/cart-db.service';
   styleUrls: ['./cart-review.component.css']
 })
 export class CartReviewComponent implements OnInit, OnDestroy {
+
+  @Output() next = new EventEmitter<void>();
 
   cartItems: any[] = [];
   sum: number = 0;
@@ -76,6 +78,10 @@ export class CartReviewComponent implements OnInit, OnDestroy {
     this.updateTableItems();
 
     this.updateSum();
+    }
+
+    nextStep(): void {
+      this.next.emit();
     }
 
 }

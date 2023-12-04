@@ -88,9 +88,6 @@
   width: 95px;
 }
 
-
-
-
 .title-container {
   display: flex;
 }
@@ -121,4 +118,57 @@
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
+}
+
+.voucher {
+  display: flex;
+  flex-direction: column;
+}
+
+.voucher-text {
+  margin: .5rem 0;
+}
+
+.voucher-button {
+  border: 1px solid transparent;
+  background-color: #ffca42;
+  color: #1b3764;
+  padding: 1rem 0;
+  transition: all .5s ease;
+}
+
+.voucher-button:hover {
+  border: 1px solid #1b3764;
+  background-color: transparent;
+  color: #1b3764;
+}
+
+td {
+  padding: .5rem 0;
+}
+
+.table-head {
+  padding: 0 1rem;
+}
+
+.next-previous-container {
+  display: flex;
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-previous-button {
+  border: 1px solid transparent;
+  width: 120px;
+  padding: 10px 5px;
+  background-color: #ffca42;
+  color: #1b3764;
+  transition: all .5s ease;
+}
+
+.next-previous-button:hover {
+  border: 1px solid #1b3764;
+  background-color: transparent;
 }

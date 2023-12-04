@@ -12,42 +12,64 @@
 
         <div class="cart-table">
 
-            <table mat-table [dataSource]="cartItems" class="mat-elevation-z8">
-    
-                <!-- Weight Column -->
-                <ng-container matColumnDef="Title">
-                    <th mat-header-cell *matHeaderCellDef> Title </th>
-                    <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-                </ng-container>
-    
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="Quantity">
-                    <th mat-header-cell *matHeaderCellDef> Quantity </th>
-                    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-                </ng-container>
-    
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="Price">
-                    <th mat-header-cell *matHeaderCellDef> Price </th>
-                    <td mat-cell *matCellDef="let element"> ${{element.price | number: '1.2-2'}} </td>
-                </ng-container>
-    
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th class="table-head">Quantity</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let item of tableItems">
+                        <td>{{item.title}} </td>
+                        <td class="text-center">{{item.quantity}} </td>
+                        <td>${{item.price}} </td>
+                    </tr>
+                    <tr>
+                        <td>{{ deliveryType }} </td>
+                        <td> </td>
+                        <td>${{ deliveryPrice }} </td>
+                    </tr>
+
+                </tbody>
+
             </table>
 
+            <hr>
+
             <div>
-                
+                Total: ${{sum | number: '1.2-2'}}
             </div>
 
         </div>
+
+
+
+        <!-- <form class="voucher" #voucherForm="ngForm" (ngSubmit)="submitVoucher()">
+
+            <span class="voucher-text">Do you have a voucher?</span>
+
+            <mat-form-field appearance="outline" class="voucher-input">
+                <mat-label>Voucher</mat-label>
+                <input matInput name="voucherCode" [formControl]="voucherControl">
+            </mat-form-field>
+            <mat-error *ngIf="voucherControl.hasError('pattern')">
+                Invalid voucher format. Please use the format: 1234-1234-1234-1234.
+              </mat-error>
+              <mat-error *ngIf="voucherErrorMessage">{{ voucherErrorMessage }}</mat-error>
+            
+            <button type="submit" class="voucher-button">Submit Voucher</button>
+        </form> -->
 
     </div>
 
 
     <div class="right">
 
-        
+
 
         <div class="card-details">
 
@@ -94,4 +116,9 @@
     </div>
 
 
+</div>
+
+<div class="next-previous-container">
+    <button class="next-previous-button" (click)="previousStep()">Previous</button>
+    <button class="next-previous-button">Done</button>
 </div>
