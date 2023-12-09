@@ -108,7 +108,7 @@
     transition: 0.5s;
   }
   
-  .left, .right {
+  .left, .right,   .story-item-left {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,13 +130,6 @@
   .story-item {
     display: flex;
     gap: 1rem;
-  }
-  
-  .story-item-left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
   }
   
   .dotted-line {
