@@ -34,3 +34,24 @@ mat-toolbar{background-color:#1b3764!important;height:120px;display:flex;align-i
 .footer-separator{margin:2rem;width:80%;background-color:#969aa0;padding:1px}
 .footer-text{color:#969aa0;font-size:15px;letter-spacing:.5px}
 .footer-social{display:flex;gap:11px}
+
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+  }
+  
+  .label-warning[href],
+  .badge-warning[href] {
+    background-color: #c67605;
+  }
+  #lblCartCount {
+      font-size: 12px;
+      background: #ffca42;
+      color: #1b3764;
+      padding: 0 5px;
+      vertical-align: top;
+      margin-left: -10px; 
+  }

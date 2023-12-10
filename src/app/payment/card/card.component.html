@@ -14,7 +14,7 @@
 
             <table>
 
-                <thead>
+                <thead class="table-head-tr">
                     <tr>
                         <th>Product</th>
                         <th class="table-head">Quantity</th>
@@ -23,12 +23,12 @@
                 </thead>
 
                 <tbody>
-                    <tr *ngFor="let item of tableItems">
+                    <tr class="table-body-tr" *ngFor="let item of tableItems">
                         <td>{{item.title}} </td>
                         <td class="text-center">{{item.quantity}} </td>
                         <td>${{item.price}} </td>
                     </tr>
-                    <tr>
+                    <tr class="table-body-tr">
                         <td>{{ deliveryType }} </td>
                         <td> </td>
                         <td>${{ deliveryPrice }} </td>
@@ -40,7 +40,7 @@
 
             <hr>
 
-            <div>
+            <div class="fw-bold">
                 Total: ${{sum | number: '1.2-2'}}
             </div>
 
@@ -76,9 +76,9 @@
             <div class="card">
                 <div class="chip"> <img class="card-chip" src="\assets\chip.png" alt=""> </div>
                 <div class="card-number">
-                    **** **** **** 1234
+                    1234 5678 9012 3456
                 </div>
-                <div class="card-holder">Cardholder Name</div>
+                <div class="card-holder">Cardholder Name</div> <br>
                 <div class="d-flex gap-5">
                     <div class="expiry-date">Expiry date</div>
                     <div class="cvv">CVV</div>
@@ -120,5 +120,8 @@
 
 <div class="next-previous-container">
     <button class="next-previous-button" (click)="previousStep()">Previous</button>
-    <button class="next-previous-button">Done</button>
+    <button class="next-previous-button" (click)="handlePayment()">Done</button>
 </div>
+
+
+

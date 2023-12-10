@@ -2,6 +2,8 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from './cart/cart.component';
 import { Router } from '@angular/router';
+import { CartDbService } from './services/cart-db.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -15,8 +17,13 @@ export class AppComponent implements OnInit {
 
   title = 'Book';
   collapsed: boolean | undefined;
+  cartCount = 0;
 
-  constructor(public dialog: MatDialog, private router: Router) {}
+  cartItems: any[] = [];
+
+  private cartSubscription!: Subscription;
+
+  constructor(public dialog: MatDialog, private router: Router, private cartDB: CartDbService) {}
 
   ngOnInit() {
     const screenWidth = window.innerWidth;
@@ -26,6 +33,19 @@ export class AppComponent implements OnInit {
     } else {
       this.collapsed = false;
     }
+
+    this.cartItems = this.cartDB.getCart();
+
+    this.cartSubscription = this.cartDB.getCartItemsObservable().subscribe((updatedCartItems) => {
+      this.cartItems = updatedCartItems;
+
+      this.cartCount = 0;
+
+      this.cartItems.forEach(element => {
+        this.cartCount++;
+      });
+
+    });
 
   }
 

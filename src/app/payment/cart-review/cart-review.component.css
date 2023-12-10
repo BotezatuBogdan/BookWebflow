@@ -8,6 +8,10 @@
   flex-direction: column;
 }
 
+.cart-table {
+  width: 100%;
+}
+
 .title-container {
   display: flex;
 }

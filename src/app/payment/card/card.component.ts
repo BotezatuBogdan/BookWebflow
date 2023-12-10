@@ -1,10 +1,9 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output, } from '@angular/core';
-import { FormControl, NgForm, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { StripeService } from 'src/app/services/stripe.service';
 import { Subscription } from 'rxjs';
 import { CartDbService } from 'src/app/services/cart-db.service';
 import { ShipmentPriceService } from 'src/app/services/shipment-price.service';
-import { voucherCodes } from 'src/app/data/vouchers-data';
+
 
 @Component({
   selector: 'app-card',
@@ -15,6 +14,7 @@ import { voucherCodes } from 'src/app/data/vouchers-data';
 
 
 export class CardComponent implements OnInit, OnDestroy {
+  [x: string]: any;
 
   @Output() previous = new EventEmitter<void>();
 
@@ -32,7 +32,9 @@ export class CardComponent implements OnInit, OnDestroy {
   private deliveryDetailsSubscription!: Subscription;
   deliveryDetails: any;
 
-  constructor(private cartDB: CartDbService, private deliveryService: ShipmentPriceService) { }
+  cardCaptureReady = false;
+
+  constructor(private cartDB: CartDbService, private deliveryService: ShipmentPriceService, private stripeService: StripeService) { }
 
   ngOnInit(): void {
 
@@ -46,27 +48,24 @@ export class CardComponent implements OnInit, OnDestroy {
     this.deliveryDetailsSubscription = this.deliveryService.deliveryDetailsObservable.subscribe((details) => {
       this.deliveryDetails = details;
 
-      if( this.deliveryDetails) {
-        
+      if (this.deliveryDetails) {
+
         this.deliveryType = details.deliveryType;
 
-        if( details.deliveryPrice === '$5.99' || details.deliveryPrice === '$9.99') 
-        {
+        if (details.deliveryPrice === '$5.99' || details.deliveryPrice === '$9.99') {
           let originalString = details.deliveryPrice;
           let stringWithoutFirstCharacter = originalString.substring(1);
           this.deliveryPrice = parseFloat(stringWithoutFirstCharacter);
         } else {
           this.deliveryPrice = 0;
         }
-        
+
       }
 
-      this.updateTableItems(); 
+      this.updateTableItems();
     });
 
   }
-
-
 
   ngOnDestroy(): void {
     this.cartSubscription.unsubscribe();
@@ -114,5 +113,16 @@ export class CardComponent implements OnInit, OnDestroy {
     this.previous.emit();
   }
 
+  async handlePayment() {
+    const amount = 1000; // Specify the amount in cents or any currency
 
+    try {
+      const paymentIntent = await this.stripeService.mockTransaction(amount);
+      // Handle the paymentIntent response as needed
+      console.log(paymentIntent);
+    } catch (error) {
+      // Handle errors
+      console.error(error);
+    }
+  }
 }

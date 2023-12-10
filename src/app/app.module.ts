@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatRadioModule} from '@angular/material/radio';
-
+import { StripeModule } from "stripe-angular"
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -52,6 +52,7 @@ import { CartServiceService } from './cart-service.service';
 import { CartReviewComponent } from './payment/cart-review/cart-review.component';
 import { ShippingAddressComponent } from './payment/shipping-address/shipping-address.component';
 import { CardComponent } from './payment/card/card.component';
+import { StripeService } from './services/stripe.service';
 
 @NgModule({
   declarations: [
@@ -105,9 +106,10 @@ import { CardComponent } from './payment/card/card.component';
     HttpClientModule,
     MatSelectModule,
     MatAutocompleteModule,
-    MatRadioModule
+    MatRadioModule,
+    StripeModule.forRoot("pk_live_51OLLkpKI6ZMXj3BqWmFcHSLXKVYpYfKe8OP67RU4avBfju0gJUxYrfZNcrjzjgiQl2GrhzOSTjPzdwOYQEQG1WTM00Z4ENJ8LG")
   ],
-  providers: [CartServiceService],
+  providers: [CartServiceService, StripeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
