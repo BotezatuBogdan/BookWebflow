@@ -53,6 +53,7 @@ import { CartReviewComponent } from './payment/cart-review/cart-review.component
 import { ShippingAddressComponent } from './payment/shipping-address/shipping-address.component';
 import { CardComponent } from './payment/card/card.component';
 import { StripeService } from './services/stripe.service';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { StripeService } from './services/stripe.service';
     CartComponent,
     CartReviewComponent,
     ShippingAddressComponent,
-    CardComponent
+    CardComponent,
+    PaymentSuccessComponent
   ],
   imports: [
     BrowserModule,

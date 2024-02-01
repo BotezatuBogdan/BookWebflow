@@ -4,6 +4,9 @@ import { CountryAPIService } from 'src/app/services/country-api.service';
 import { startWith, map } from 'rxjs/operators';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ShipmentPriceService } from 'src/app/services/shipment-price.service';
+import { Stripe } from '@stripe/stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import { CartDbService } from 'src/app/services/cart-db.service';
 
 @Component({
   selector: 'app-shipping-address',
@@ -32,9 +35,12 @@ export class ShippingAddressComponent {
     'Mail Delivery': 'Free'  // Making Mail free
   };
 
+  private stripePromise = loadStripe('pk_test_51OLMMhIDXc9qzD2OeLmgFCQ9UMoirR6NcFUD4EZvOHUXttvVZBATE93XmQLfU7pw9rUSZ2yNKKMyot8etnCtrCWe00D6q74OW0');
+
+
   selectedDeliveryPrice: string = this.deliveryPrices['Standard Delivery'];
 
-  constructor(private countryService: CountryAPIService, private deliveryService: ShipmentPriceService, private fb: FormBuilder) {
+  constructor(private countryService: CountryAPIService,private cartItems: CartDbService, private deliveryService: ShipmentPriceService, private fb: FormBuilder) {
     this.addressForm = this.fb.group({
       // Contact Details
       fullName: ['', Validators.required],
@@ -53,8 +59,41 @@ export class ShippingAddressComponent {
 
   submitForm(): void {
     if (this.addressForm.valid && this.selectedDeliveryMethod !== '') {
-      this.next.emit();
+
+      //this.next.emit();
+      // this.createPaymentIntent( this.cartItems.getTotal() ).then((url) => { 
+      //   console.log('Payment URL:', url);
+      //   window.open(url, '_blank')
+      // });
+
+      if (this.addressForm.valid && this.selectedDeliveryMethod !== '') {
+        this.createPaymentIntent(this.cartItems.getTotal()).then((url) => { 
+          
+          window.open(url, '_blank');
+        });
+      }
+      
+
     }
+  }
+
+  async createPaymentIntent(amount: number): Promise<string> {
+    const stripe = await this.stripePromise;
+    amount = amount * 100;
+    const response = await fetch('http://localhost:8085/stripe/create-payment-link', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        amount,
+        currency: 'usd'
+       }),
+    });
+  
+    const clientSecret = await response.json();
+
+    return clientSecret.paymentLink;
   }
 
   previousStep(): void {
@@ -87,4 +126,9 @@ export class ShippingAddressComponent {
 
     this.deliveryService.updateShipmentDetails(delivery);
   }
+
+
+  
+
+
 }

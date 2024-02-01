@@ -77,4 +77,21 @@ export class CartDbService {
       this.setCartItems(cartItems);
     }
   }
+
+  removeAllItemsFromCart(): void {
+    // Set the cart items to an empty array
+    this.setCartItems([]);
+  }
+
+  getTotal(): number {
+    const cartItems = this.getCartItems();
+    
+    // Calculate the total based on the quantity and price of each item
+    const total = cartItems.reduce((acc, item) => {
+      return acc + (item.quantity * item.price);
+    }, 0);
+
+    return total;
+  }
+
 }

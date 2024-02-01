@@ -47,27 +47,10 @@
         </div>
 
 
-
-        <!-- <form class="voucher" #voucherForm="ngForm" (ngSubmit)="submitVoucher()">
-
-            <span class="voucher-text">Do you have a voucher?</span>
-
-            <mat-form-field appearance="outline" class="voucher-input">
-                <mat-label>Voucher</mat-label>
-                <input matInput name="voucherCode" [formControl]="voucherControl">
-            </mat-form-field>
-            <mat-error *ngIf="voucherControl.hasError('pattern')">
-                Invalid voucher format. Please use the format: 1234-1234-1234-1234.
-              </mat-error>
-              <mat-error *ngIf="voucherErrorMessage">{{ voucherErrorMessage }}</mat-error>
-            
-            <button type="submit" class="voucher-button">Submit Voucher</button>
-        </form> -->
-
     </div>
 
 
-    <div class="right">
+    <!-- <div class="right">
 
 
 
@@ -85,43 +68,43 @@
                 </div>
             </div>
 
-            <mat-form-field appearance="outline" class="card-number-input">
-                <mat-label>Card Number</mat-label>
-                <input matInput>
-            </mat-form-field>
+            <form [formGroup]="form" (onSubmit)="handlePayment()" class="card-details-inputs">
 
-            <mat-form-field appearance="outline" class="card-Name-input">
-                <mat-label>Cardholder Name</mat-label>
-                <input matInput>
-            </mat-form-field>
-
-            <div class="card-row d-flex">
-                <mat-form-field appearance="outline" class="card-Month-input">
-                    <mat-label>Month</mat-label>
-                    <input matInput>
+                <mat-form-field appearance="outline" class="card-number-input">
+                    <mat-label>Card Number</mat-label>
+                    <input matInput formControlName="cardNumber">
                 </mat-form-field>
 
-                <mat-form-field appearance="outline" class="card-Year-input">
-                    <mat-label>Year</mat-label>
-                    <input matInput>
+                <mat-form-field appearance="outline" class="card-Name-input">
+                    <mat-label>Cardholder Name</mat-label>
+                    <input formControlName="cardholderName" matInput>
                 </mat-form-field>
 
-                <mat-form-field appearance="outline" class="card-CVV-input">
-                    <mat-label>CVV</mat-label>
-                    <input matInput>
-                </mat-form-field>
-            </div>
+                <div class="card-row d-flex">
+                    <mat-form-field appearance="outline" class="card-Month-input">
+                        <mat-label formControlName="expirationMonth">Month</mat-label>
+                        <input matInput>
+                    </mat-form-field>
 
+                    <mat-form-field appearance="outline" class="card-Year-input">
+                        <mat-label formControlName="expirationYear">Year</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" class="card-CVV-input">
+                        <mat-label formControlName="cvv">CVV</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                
+            </form>
         </div>
-    </div>
+    </div> -->
 
 
 </div>
 
 <div class="next-previous-container">
     <button class="next-previous-button" (click)="previousStep()">Previous</button>
-    <button class="next-previous-button" (click)="handlePayment()">Done</button>
+    <button class="next-previous-button" type="submit" (click)="handlePayment()">Pay</button>
 </div>
-
-
-

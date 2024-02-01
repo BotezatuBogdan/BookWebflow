@@ -27,7 +27,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/@stripe/stripe-js/dist/stripe.esm.js"]
           },
           "configurations": {
             "production": {

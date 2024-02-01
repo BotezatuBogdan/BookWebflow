@@ -3,7 +3,12 @@ import { StripeService } from 'src/app/services/stripe.service';
 import { Subscription } from 'rxjs';
 import { CartDbService } from 'src/app/services/cart-db.service';
 import { ShipmentPriceService } from 'src/app/services/shipment-price.service';
-
+import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { group } from '@angular/animations';
+import { Stripe } from '@stripe/stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-card',
@@ -16,7 +21,11 @@ import { ShipmentPriceService } from 'src/app/services/shipment-price.service';
 export class CardComponent implements OnInit, OnDestroy {
   [x: string]: any;
 
+  //private stripePromise = loadStripe('pk_live_51ONuR6H8GiaEbc25PnZqOu4dH1JWPmBBdfA5DroOiVHTQCkpQ9L1tDYRU4kYySlz5kSwsYbwz8VbKDgQzDVrvUeV00aTUcJK4Z');
+  private stripePromise = loadStripe('pk_test_51OLMMhIDXc9qzD2OeLmgFCQ9UMoirR6NcFUD4EZvOHUXttvVZBATE93XmQLfU7pw9rUSZ2yNKKMyot8etnCtrCWe00D6q74OW0');
+
   @Output() previous = new EventEmitter<void>();
+
 
   deliveryPrice = 0;
   deliveryType = '';
@@ -34,9 +43,13 @@ export class CardComponent implements OnInit, OnDestroy {
 
   cardCaptureReady = false;
 
-  constructor(private cartDB: CartDbService, private deliveryService: ShipmentPriceService, private stripeService: StripeService) { }
+  stripe!: Stripe;
+  
+  constructor(private formBuilder: FormBuilder, private cartDB: CartDbService, private deliveryService: ShipmentPriceService, private router: Router) {
 
-  ngOnInit(): void {
+  }
+
+  ngOnInit() {
 
     this.cartItems = this.cartDB.getCart();
 
@@ -93,36 +106,37 @@ export class CardComponent implements OnInit, OnDestroy {
     this.sum += this.deliveryPrice;
   }
 
-  private getDeliveryPriceAsFloat(): number {
-    const priceString = this.deliveryDetails.deliveryPrice;
-
-    if (priceString.toLowerCase() === 'free') {
-      return 0;
-    }
-
-    const numericPart = parseFloat(priceString.substring(1));
-
-    if (!isNaN(numericPart)) {
-      return numericPart;
-    } else {
-      return 0;
-    }
-  }
 
   previousStep(): void {
     this.previous.emit();
   }
 
-  async handlePayment() {
-    const amount = 1000; // Specify the amount in cents or any currency
-
-    try {
-      const paymentIntent = await this.stripeService.mockTransaction(amount);
-      // Handle the paymentIntent response as needed
-      console.log(paymentIntent);
-    } catch (error) {
-      // Handle errors
-      console.error(error);
-    }
+  async createPaymentIntent(amount: number): Promise<string> {
+    const stripe = await this.stripePromise;
+    const response = await fetch('http://localhost:8085/stripe/create-payment-link', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ unit_amount: amount, currency: 'usd' }),
+    });
+  
+    const { clientSecret } = await response.json();
+    return clientSecret;
   }
+
+  handlePayment() {
+    this.createPaymentIntent(this.sum)
+      .then(returnCode => {
+        console.log(returnCode);
+        // Handle the payment intent as needed
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors
+      });
+  }
+
+
+
 }

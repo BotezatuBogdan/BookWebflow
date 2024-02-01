@@ -1,11 +1,14 @@
 .container,
-.card-details {
+.card-details,
+.card-details-inputs {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
 }
+
+
 
 .container {
   flex-direction: row;
@@ -44,12 +47,16 @@
 }
 
 
-.card-details {
+.card-details, .card-details-inputs {
   flex-direction: column;
   background-color: #969aa067;
   padding: 1rem;
   border-radius: 16px;
 
+}
+
+.card-details-inputs {
+  background-color: transparent !important;
 }
 
 .card {

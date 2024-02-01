@@ -29,9 +29,6 @@ export class ProdSingleComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private bookDbService: BookDbService, private cartDB: CartDbService) { }
 
   ngOnInit(): void {
-
-
-
     this.route.queryParams.subscribe(params => {
       const articleId = +params['id'];
       if (articleId) {
@@ -48,12 +45,8 @@ export class ProdSingleComponent implements OnInit {
       } else {
         this.router.navigate(['err'])
       }
-
     });
   }
-
-
-
 
   showFirsttext() {
     this.infoText = true;
