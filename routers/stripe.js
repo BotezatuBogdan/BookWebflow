@@ -32,7 +32,7 @@ router.post('/create-payment-link', async (req,res) => {
           ],
           mode: 'payment',
           success_url: 'http://localhost:4200/home',
-          cancel_url: 'http://localhost:4200/home',
+          cancel_url: 'http://localhost:4200/payment',
         });
 
         // Send the hosted payment link as a response

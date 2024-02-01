@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartDbService } from '../services/cart-db.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,7 @@ export class CartComponent implements OnInit {
   newItem: any;
   sum: number = 0;
 
-  constructor(private cartDB: CartDbService, private router: Router) { }
+  constructor(private cartDB: CartDbService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadCartItems();
@@ -59,6 +60,7 @@ export class CartComponent implements OnInit {
   goToPayment() {
     if (this.cartItems && this.cartItems.length) {
       this.router.navigate(['payment']);
+      this.dialog.closeAll();
     }
 
   }

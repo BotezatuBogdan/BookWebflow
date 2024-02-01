@@ -79,7 +79,8 @@ export class ShippingAddressComponent {
 
   async createPaymentIntent(amount: number): Promise<string> {
     const stripe = await this.stripePromise;
-    amount = amount * 100;
+    amount = parseFloat((amount * 100).toFixed(2));
+    //amount = amount * 100;
     const response = await fetch('http://localhost:8085/stripe/create-payment-link', {
       method: 'POST',
       headers: {

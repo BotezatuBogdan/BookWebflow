@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-payment-success',
-  templateUrl: './payment-success.component.html',
-  styleUrls: ['./payment-success.component.css']
+  selector: 'app-payment-fail',
+  templateUrl: './payment-fail.component.html',
+  styleUrls: ['./payment-fail.component.css']
 })
-export class PaymentSuccessComponent implements OnInit{
+export class PaymentFailComponent implements OnInit{
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 

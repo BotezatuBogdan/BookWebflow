@@ -54,6 +54,7 @@ import { ShippingAddressComponent } from './payment/shipping-address/shipping-ad
 import { CardComponent } from './payment/card/card.component';
 import { StripeService } from './services/stripe.service';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { PaymentFailComponent } from './payment-fail/payment-fail.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
     CartReviewComponent,
     ShippingAddressComponent,
     CardComponent,
-    PaymentSuccessComponent
+    PaymentSuccessComponent,
+    PaymentFailComponent
   ],
   imports: [
     BrowserModule,
