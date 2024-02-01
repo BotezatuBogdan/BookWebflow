@@ -12,12 +12,6 @@ export class CountryAPIService {
 
   constructor(private http: HttpClient) {}
 
-  // getCountries(): Observable<any[]> {
-  //   return this.http.get<any[]>(this.apiUrl).pipe(
-  //     map((countries: any[]) => countries.map(country => ({ name: country.name.common })))
-  //   );
-  // }
-
   getCountries(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl).pipe(
       map((countries: any[]) => countries.map(country => ({ name: country.name.common }))),

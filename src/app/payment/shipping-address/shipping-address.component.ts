@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CountryAPIService } from 'src/app/services/country-api.service';
-import { startWith, map } from 'rxjs/operators';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { startWith, map, switchMap } from 'rxjs/operators';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ShipmentPriceService } from 'src/app/services/shipment-price.service';
 import { Stripe } from '@stripe/stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
@@ -40,7 +40,7 @@ export class ShippingAddressComponent {
 
   selectedDeliveryPrice: string = this.deliveryPrices['Standard Delivery'];
 
-  constructor(private countryService: CountryAPIService,private cartItems: CartDbService, private deliveryService: ShipmentPriceService, private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private countryService: CountryAPIService, private cartItems: CartDbService, private deliveryService: ShipmentPriceService) {
     this.addressForm = this.fb.group({
       // Contact Details
       fullName: ['', Validators.required],
@@ -53,28 +53,19 @@ export class ShippingAddressComponent {
       city: ['', Validators.required],
       state: ['', Validators.required],
       postalCode: ['', Validators.required],
-      country: ['', Validators.required],
+      country: ['', [Validators.required]]
     });
   }
 
-  submitForm(): void {
-    if (this.addressForm.valid && this.selectedDeliveryMethod !== '') {
+  ngOnInit(): void {
+    this.countryService.getCountries().subscribe(countries => {
+      this.filteredCountries$ = this.inputControl.valueChanges.pipe(
+        startWith(this.addressForm.get('country')?.value || ''),
+        map(value => this.filterCountries(value, countries))
+      );
+    });
 
-      //this.next.emit();
-      // this.createPaymentIntent( this.cartItems.getTotal() ).then((url) => { 
-      //   console.log('Payment URL:', url);
-      //   window.open(url, '_blank')
-      // });
-
-      if (this.addressForm.valid && this.selectedDeliveryMethod !== '') {
-        this.createPaymentIntent(this.cartItems.getTotal()).then((url) => { 
-          
-          window.open(url, '_blank');
-        });
-      }
-      
-
-    }
+    this.updateSelectedDeliveryPrice();
   }
 
   async createPaymentIntent(amount: number): Promise<string> {
@@ -86,14 +77,13 @@ export class ShippingAddressComponent {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         amount,
         currency: 'usd'
-       }),
+      }),
     });
-  
-    const clientSecret = await response.json();
 
+    const clientSecret = await response.json();
     return clientSecret.paymentLink;
   }
 
@@ -101,18 +91,13 @@ export class ShippingAddressComponent {
     this.previous.emit();
   }
 
-  ngOnInit(): void {
-    this.countryService.getCountries().subscribe(countries => {
-      this.filteredCountries$ = this.inputControl.valueChanges.pipe(
-        startWith(''), // Trigger filtering on component initialization
-        map(value => this.filterCountries(value, countries))
-      );
-    });
-
-    this.updateSelectedDeliveryPrice();
+  filter(inputValue: string): void {
+    this.filteredCountries$ = this.countryService.getCountries().pipe(
+      map(countries => this.filterCountries(inputValue, countries))
+    );
   }
 
-  private filterCountries(value: string, countries: any[]): any[] {
+  filterCountries(value: string, countries: any[]): any[] {
     const filterValue = value.toLowerCase();
     return countries.filter(country => country.name.toLowerCase().includes(filterValue));
   }
@@ -128,8 +113,14 @@ export class ShippingAddressComponent {
     this.deliveryService.updateShipmentDetails(delivery);
   }
 
-
-  
-
+  submitForm(): void {
+    if (this.addressForm.valid && this.selectedDeliveryMethod !== '') {
+      if (this.addressForm.valid && this.selectedDeliveryMethod !== '') {
+        this.createPaymentIntent(this.cartItems.getTotal()).then((url) => {
+          window.open(url, '_blank');
+        });
+      }
+    }
+  }
 
 }
